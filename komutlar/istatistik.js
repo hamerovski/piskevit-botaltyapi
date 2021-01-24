@@ -8,7 +8,7 @@ exports.run = async (client, message, args) => {
     .setColor("Black")
     .setFooter(client.user.tag, client.user.avatarURL())
   .addField(
-  "» **Sahibim**","<@791212850060066867>"
+  "» **Sahibim**","<@773553681043554344>"
   )
     .addField(
       "» **Bellek kullanımı**",
@@ -49,9 +49,9 @@ exports.run = async (client, message, args) => {
     )
     .addField("» **Bit**", `\`${os.arch()}\``, true)
     .setThumbnail(client.user.avatarURL())
-  .setImage("https://cdn.discordapp.com/attachments/799289077647015957/801802738521604116/standard_2.gif")
+  .setImage("https://media.giphy.com/media/XtJI6ZM3vN3XwCl7kJ/giphy.gif")
     .addField("» **İşletim Sistemi**", `\`\`${os.platform()}\`\``)
-    .addField("**➥ Linkler**", "[:white_check_mark: Davet Linki](https://discord.com/oauth2/authorize?client_id=801730181974327307&scope=bot&permissions=8)\n(https://discord.gg/dh7W6nQvvB)\n[:white_check_mark: Website  (İleride Eklencek)]()");
+    .addField("**➥ Linkler**", "[:white_check_mark: Davet Linki](https://discord.com/oauth2/authorize?client_id=801730181974327307&scope=bot&permissions=8)\n(https://discord.gg/KqsD95V9wT)\n[:white_check_mark: Website  (İleride Eklencek)]()");
   return message.channel.send(msg);
 };
 
