@@ -125,7 +125,7 @@ client.on('error', e => {
     console.log(chalk.bgRed(e.replace(regToken, 'that was redacted')));
 });
 
-client.login(process.env.token);
+client.login(ayarlar.token);
   client.on("ready", async () => {
    log("Durum başarıyla ayarlandı")
       client.user.setActivity("Kahve Bro's ☕", 
