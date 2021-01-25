@@ -128,7 +128,7 @@ client.on('error', e => {
 client.login(ayarlar.token);
   client.on("ready", async () => {
    log("Durum başarıyla ayarlandı")
-      client.user.setActivity("Kahve Bro's ☕", 
+      client.user.setActivity("/yardım | Yenilenen Yardım Menüsü", 
         { url: 'https://twitch.tv/.',
         type: 'STREAMING' }); 
 })
