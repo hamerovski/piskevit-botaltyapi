@@ -5,7 +5,7 @@ exports.run = function(client, message, args) {
 if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("Bu Komutu Kullanmak İçin İzniniz Yok!");
 if(!args[0]) return message.channel.send(":no_entry_sign: **Lütfen Silinicek Mesaj Miktarını Yazın.!** \n **Mesajları Silebilmem İçin 0-5000 Arası Rakam Belirt** :no_entry_sign:");
 message.channel.bulkDelete(args[0]).then(() => {
-  message.channel.send(` ${args[0]} Adet Mesajı Sildim. ✅`).then(msg => msg.delete(5000));
+  message.channel.send(` ${args[0]} Adet Mesajı Ve Hertarafı İyice Sildim. <a:temizlik:803173857094664232>`).then(msg => msg.delete(5000));
 })
 }
 
