@@ -133,6 +133,27 @@ client.login(ayarlar.token);
         type: 'STREAMING' }); 
 })
 
+////--------------BOTA DM ATANLAR BAŞLANGIÇ-------------////
+
+client.on("message", msg => {
+  var dm = client.channels.cache.get("797114065582555136");
+  if (msg.channel.type === "dm") {
+    if (msg.author.id === client.user.id) return;
+    const botdm = new Discord.MessageEmbed()
+      .setTitle(`${client.user.username} Dm`)
+      .setTimestamp()
+      .setColor("RANDOM")
+      .setThumbnail(`${msg.author.avatarURL()}`)
+      .addField("Gönderen", msg.author.tag)
+      .addField("Gönderen ID", msg.author.id)
+      .addField("Gönderilen Mesaj", msg.content);
+
+    dm.send(botdm);
+  }
+  if (msg.channel.bot) return;
+});
+///--------BOTA DM ATANLAR SONU-------------////
+
 client.on('guildDelete', guild => {
 
 let plasmic = new Discord.MessageEmbed()
