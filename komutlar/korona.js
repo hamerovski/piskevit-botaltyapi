@@ -61,7 +61,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: "corona-bilgi",
+  name: "korona",
   description: "Ülkelerdeki COVID-19 vakalarını inceyelebilirsiniz #Pink Code Share",
   usage: "korona <ülke>"
 };
