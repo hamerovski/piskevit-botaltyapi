@@ -44,7 +44,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: "hava-durumu",
+  name: "havadurumu",
   description: "hava durumunu gösterir",
   usage: "havadurumu"
 };
