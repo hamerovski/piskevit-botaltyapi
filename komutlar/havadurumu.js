@@ -19,12 +19,12 @@ exports.run = (client, message, args) => {
     var current = result[0].current;
     var location = result[0].location;
 
-    const motion = new Discord.MessageEmbed()
+    const plasmic = new Discord.MessageEmbed()
 
       .setDescription(`**${current.skytext}**`)
       .setAuthor(`${current.observationpoint} için hava durumu`)
       .setThumbnail(current.imageUrl)
-      .setColor(0x00ae86)
+      .setColor("RANDOM")
       .addField("● Zaman Dilimi", `UTC${location.timezone}`, true)
       .addField("● Derece Türü", location.degreetype, true)
       .addField("● Sıcaklık", `${current.temperature} Derece`, true)
@@ -32,14 +32,14 @@ exports.run = (client, message, args) => {
       .addField("● Rüzgar", current.winddisplay, true)
       .addField("● Nem", `${current.humidity}%`, true);
 
-    message.channel.send({ motion });
+    message.channel.send({ plasmic });
   });
 };
 
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ["hava-durumu", "havadurum"],
+  aliases: ["havadurumu"],
   permLevel: "0"
 };
 
