@@ -1,32 +1,29 @@
-const Discord = require("discord.js");
+const Discord = require ("discord.js");
+const db = require("quick.db");
+const ms = require("parse-ms");
 
-exports.run = (client, message, params) => {
+exports.run = async (client, message, args) => {
 
-const virus = new Discord.MessageEmbed()
+  let yilbasi = new Date("2021-06-26 10:15:00");
+  let zaman = ms(yilbasi - Date.now());
 
-      .setAuthor("YKS SAYAÇ")
-      .setColor("RANDOM")
-      function prepareFrame() {
-        var ifrm = document.createElement("iframe");
-        ifrm.setAttribute("src", "http://google.com/");
-        ifrm.style.width = "640px";
-        ifrm.style.height = "480px";
-        document.body.appendChild(ifrm);
-    }
-
-return message.channel.send(virus);
- 
+return message.channel.send(
+    `:label: **YKS Sayacına Ait Bilgiler Aşşağıda;** \n\n> Gün: **${zaman.days}** \n> Saat: **${zaman.hours}** \n> Dakika: **${zaman.minutes}** \n\n:white_check_mark: **YKS'ye Bu Kadar Zaman Kaldı!**`
+  );
 };
 
 exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: [],
+  kategori: "eğlence",
   permLevel: 0
 };
 
 exports.help = {
   name: "yks-sayaç",
-  description: "YKS SAYAÇI BY HAMEROVSKİ",
+
+  description:
+    "YKS sınavına kaç gün kaç saat kaç dakika kaç saniye olduğunu gösterir.",
   usage: "yks-sayaç"
 };
