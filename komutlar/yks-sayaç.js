@@ -8,7 +8,7 @@ exports.run = async (client, message, args) => {
   let zaman = ms(yilbasi - Date.now());
 
 return message.channel.send(
-    `:label: **YKS Sayacına Ait Bilgiler Aşşağıda;** \n\n> Gün: **${zaman.days}** \n> Saat: **${zaman.hours}** \n> Dakika: **${zaman.minutes}** \n\n:white_check_mark: **YKS'ye Bu Kadar Zaman Kaldı!**`
+    `:label: **YKS Sayacına Ait Bilgiler Aşşağıda;** \n\n> Gün: **${zaman.days}** \n> Saat: **${zaman.hours}** \n> Dakika: **${zaman.minutes}** \n\n:white_check_mark: **YKS'ye kalan vakit yukarıda dostum!**`
   );
 };
 
