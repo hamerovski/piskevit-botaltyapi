@@ -41,7 +41,6 @@ exports.run = async (client, message, args) => {
           .addField(`Toplam Test`, response.data.tests, true)
           .setTimestamp()
           .setThumbnail(response.data.countryInfo.flag);
-      .toString().replace(/(\d)(?=(\d{3})+$)/g, '$1'+".")
         console.log(response);
         message.channel.send(pinkcode);
       })
