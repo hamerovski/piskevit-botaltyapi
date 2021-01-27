@@ -47,7 +47,7 @@ if (!message.author.bot) {
             if (message.content.includes(kelime.toLowerCase()) || message.content.includes(kelime.toUpperCase()) || message.content.includes(kelime)) {
                 const d0ruembed = new Discord.MessageEmbed()
                 .setTitle(`Tebrikler ${message.author.username} :tada:`)
-                .setDescription(`Kelimeyi doğru bildin ve \` ${ekpoint} \` puan kazandın \n Mevcut Puan: **a!kt-puan**`)
+                .setDescription(`Kelimeyi doğru bildin ve \` ${ekpoint} \` puan kazandın \n Mevcut Puan: **/kt-puan**`)
         .setFooter(`${client.user.username} ` + 'Kelime tahmini sistemi', client.user.avatarURL )
                 .setColor('0x36393E')  
                 message.channel.send(d0ruembed)
