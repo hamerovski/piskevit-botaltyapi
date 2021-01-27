@@ -9,7 +9,7 @@ const virus = new Discord.MessageEmbed()
        .setFooter("Piskevit")
       .setTimestamp()
       .setDescription("")
-      .setImage('<div class="powr-countdown-timer" id="a1949c18_1611753966"></div><script src="https://www.powr.io/powr.js?platform=html"></script>');
+      .setImage('');
 
 return message.channel.send(virus);
  
