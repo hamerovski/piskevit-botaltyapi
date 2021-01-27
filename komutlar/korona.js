@@ -39,9 +39,9 @@ exports.run = async (client, message, args) => {
           .addField(`Aktif Vaka`, response.data.active, true)
           .addField(`Toplam Kritik Vaka`, response.data.critical, true)
           .addField(`Toplam Test`, response.data.tests, true)
-          .toString().replace(/(\d)(?=(\d{3})+$)/g, '$1'+".")
           .setTimestamp()
           .setThumbnail(response.data.countryInfo.flag);
+      .toString().replace(/(\d)(?=(\d{3})+$)/g, '$1'+".")
         console.log(response);
         message.channel.send(pinkcode);
       })
