@@ -89,8 +89,8 @@ client.on("ready",async message => {
 
   
    
-  var mesajid = "804063949657866290"
-  var kanalid = "803953607027982356"
+  var mesajid = "804426306212331520"
+  var kanalid = "804426055314047026"
   var sunucuid = "796847477080850462"
   var tarih = "June 26 2021 10:15:00 UTC+3" //İNGİLİZCE AY / GÜN / YIL / SAAT / DAKİKA / SANİYE 
   var bitiş = "Zaman doldu koçum geçmiş olsun"
@@ -156,7 +156,7 @@ client.on("ready",async message => {
 
   
    
-  var mesajid = "804420806977388545"
+  var mesajid = "804422471977140305"
   var kanalid = "804420750320205845"
   var sunucuid = "768453225958998076"
   var tarih = "June 26 2021 10:15:00 UTC+3" //İNGİLİZCE AY / GÜN / YIL / SAAT / DAKİKA / SANİYE 
