@@ -4,12 +4,12 @@ if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("Bu Ko
 if(!args[0]) return message.channel.send("🚫 **Lütfen Silinicek Mesaj Miktarını Yazın!** 🚫");
 message.channel.bulkDelete(args[0]).then(() => {
   message.channel.send(` ${args[0]} Adet Mesajı Sildim. :put_litter_in_its_place:`).then(msg => msg.delete(5000));
-    const botunmesajyonet = new Discord.RichEmbed()
+    const botunmesajyonet = new Discord.MessageEmbed()
     let messagecount = parseInt(args.join(' '));
   message.channel.fetchMessages({
     limit: messagecount
   }).then(messages => message.channel.bulkDelete(messages));
-    const sohbetsilindi = new Discord.RichEmbed()
+    const sohbetsilindi = new Discord.MessageEmbed()
     .setColor('RANDOM')
     .setTimestamp()
     .addField('🌍 Eylem:', 'Sohbet silme')
