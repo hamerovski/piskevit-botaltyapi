@@ -6,7 +6,7 @@ message.channel.bulkDelete(args[0]).then(() => {
   message.channel.send(` ${args[0]} Adet Mesajı Sildim. :put_litter_in_its_place:`).then(msg => msg.delete(5000));
     const botunmesajyonet = new Discord.MessageEmbed()
     let messagecount = parseInt(args.join(' '));
-  message.channel.fetchMessages({
+  message.channel.messages.fetch({
     limit: messagecount
   }).then(messages => message.channel.bulkDelete(messages));
     const sohbetsilindi = new Discord.MessageEmbed()
@@ -16,7 +16,7 @@ message.channel.bulkDelete(args[0]).then(() => {
     .addField('👨 Yetkili: ', message.author.username)
     .addField('🔥 Sonuç: ', `Başarılı`)
     .addField('📝 Kaç Adet', + messagecount)
-    return message.channel.sendEmbed(sohbetsilindi).then(msg => msg.delete(5000));
+    return message.channel.send(sohbetsilindi).then(msg => msg.delete(5000));
     console.log("**Sohbet " + message.member + " tarafından silindi! **").then(msg => msg.delete(5000));
 
 })
