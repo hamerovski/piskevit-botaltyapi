@@ -7,7 +7,7 @@ exports.run = async(client, message, args) => {
 
     /////////////////////////////////////
     let unban = args[0]
-    if(!unban) return message.channel.send(`Banını kaldırcağın kişinin idsini yaz.`) 
+    if(/unban) return message.channel.send(`Banını kaldırcağın kişinin idsini yaz.`) 
 
     message.guild.members.unban(unban)
     message.channel.send(`<@${unban.id}>, adlı kullanıcının sunucudaki yasağı kaldırıldı. Gerekli bilgileri loga sundum.`) 
