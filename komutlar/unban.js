@@ -11,7 +11,7 @@ module.exports.run = async (client, message, args) => {
   const userError = new Discord.RichEmbed()
     .setColor('#ed455a')
       .setTitle('• Hata: 02 •')
-        .setDescription('```Yasağı kaldırmak için bir kullanıcı kimliği girmelisiniz g!unban İD```')
+        .setDescription('```Yasağı kaldırmak için bir kullanıcı kimliği girmelisiniz /unban İD```')
   
   const userError2 = new Discord.RichEmbed()
     .setColor('#ed455a')
@@ -77,5 +77,5 @@ message.channel.send(`<@!${user}> Adlı Kullanıcının Yasağı Başarıyla Kal
   exports.help = {
     name: 'unban',
     description: 'İstediğiniz kişinin banını kaldırır.',
-    usage: 'unban [kullanıcı] [sebep]'
+    usage: 'unban'
   };
