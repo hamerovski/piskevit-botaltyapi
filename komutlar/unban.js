@@ -1,25 +1,39 @@
-const Discord = require("discord.js");
+const Discord = require('discord.js')
+const ayar = require('../ayarlar.json')
+const db = require('quick.db')
 
-exports.run = (client, message, args) => {
-if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("Yeterli yetkin yok!")
-  let user = client.guilds.get(args[0])
+exports.run = async(client, message, args) => {
+    if(!message.member.roles.cache.get(kullancak rol id) && !message.member.permissions.has('ADMINISTRATOR')) return message.channel.send('Bu komutu kullanmak için yetkin yok.')
 
-  if(!user) return message.channel.send("Kimin banını kaldıracağımın ID'sını belirtmedin.")
-  
-  message.guild.unban(user);
-  
-  
-  message.channel.send(`${user} ID'lı kullanıcının banı kaldırıldı.`)
-}
+    /////////////////////////////////////
+    let unban = args[0]
+    if(!unban) return message.channel.send(`Banını kaldırcağın kişinin idsini yaz.`) 
+
+    message.guild.members.unban(unban)
+    message.channel.send(`<@${unban.id}>, adlı kullanıcının sunucudaki yasağı kaldırıldı. Gerekli bilgileri loga sundum.`) 
+    /////////////////////////////////////
+    client.channels.cache.get(kanal id).send(
+        new Discord.MessageEmbed()
+        .setTitle(`${client.user.username} - Unban`)
+        .setAuthor(message.author.username, message.author.avatarURL ({dynamic: true}))
+        .setDescription(`<@${unban.id}> adlı kullanıcının sunucudaki yasağı kaldırıldı.
+    
+    - Banı kaldıran yetkili: <@${message.author.id}> / **${message.author.id}**
+    
+    - Banı Kalkan Kullanıcı: <@${unban.id}> / **${unban.id}**
+    
+    - Banı Kaldıran Sunucu: **${message.guild.username}**`)
+    )
+};
 exports.conf = {
-  enabled: true,
-  guildOnly: false,
-  aliases: [],
-  permLevel: 0  
+enabled: true,
+guildOnly: true,
+aliases: ['ban-kaldır'],
+permLevel: 0
 };
 
 exports.help = {
-  name: 'unban',
-  description: 'Kişiyi banlar',
-  usage: '-unban @üye'
-} 
+name: 'unban',
+description: 'Unban komutu - Swenlor',
+usage: 'Unban'
+};
