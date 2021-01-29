@@ -1,39 +1,50 @@
-const Discord = require('discord.js')
-const ayar = require('../ayarlar.json')
-const db = require('quick.db')
+const Discord = require("discord.js");
+module.exports.run = async (bot, message, args) => {
+  if (!message.member.hasPermission("BAN_MEMBERS"))
+    return message.channel.send(
+      "BU KOMUTU KULLANA BILMEK ICIN YETKIN YETERSIZ!"
+    );
+  let unbanLog = message.guild.channels.find(m => m.name === "mod-log");
+  if (!unbanLog) {
+    message.guild.createChannel("mod-log");
+  }
+  let bannedMember = args[0];
+  if (!bannedMember)
+    return message.channel.send(
+      "BAN KALDIRILACAK ID YAZ | **KULLANIM:** `unban @user <reason>`"
+    );
 
-exports.run = async(client, message, args) => {
-    if(!message.member.roles.cache.get(kullancak rol id) && !message.member.permissions.has('ADMINISTRATOR')) return message.channel.send('Bu komutu kullanmak için yetkin yok.')
+  let bannedReason = args.slice(1).join(" ");
+  if (!bannedReason)
+    return message.channel.send(
+      "BIR SEBEP YAZ | **KULLANIM:** `>unban @user <reason>`"
+    );
 
-    /////////////////////////////////////
-    let unban = args[0]
-    if(!unban) return message.channel.send(`Banını kaldırcağın kişinin idsini yaz.`) 
+  if (!message.guild.me.hasPermission("BAN_MEMBERS"))
+    return message.channel.send("BAN KALDIRMA YETKIM YOK");
 
-    message.guild.members.unban(unban)
-    message.channel.send(`<@${unban.id}>, adlı kullanıcının sunucudaki yasağı kaldırıldı. Gerekli bilgileri loga sundum.`) 
-    /////////////////////////////////////
-    client.channels.cache.get(kanal id).send(
-        new Discord.MessageEmbed()
-        .setTitle(`${client.user.username} - Unban`)
-        .setAuthor(message.author.username, message.author.avatarURL ({dynamic: true}))
-        .setDescription(`<@${unban.id}> adlı kullanıcının sunucudaki yasağı kaldırıldı.
-    
-    - Banı kaldıran yetkili: <@${message.author.id}> / **${message.author.id}**
-    
-    - Banı Kalkan Kullanıcı: <@${unban.id}> / **${unban.id}**
-    
-    - Banı Kaldıran Sunucu: **${message.guild.username}**`)
+  try {
+    message.guild.unban(bannedMember, bannedReason);
+    message.channel.send(`${bannedMember} ID'li KISININ **BANI KALKTI**`);
+  } catch (e) {
+    console.log(e.message);
+  }
+
+  let unbanLogEmbed = new Discord.RichEmbed()
+    .setAuthor(`BILDIRIM | Unban`, bannedMember.displayAvatarURL)
+    .setDescription(
+      `**ID:** ${bannedMember}\n \n**KALDIRAN:** ${message.author}\n \n**SEBEP:** ${bannedReason}\n \n**BANIN KALKTIGI KANAL:** ${message.channel}`
     )
+    .setColor("GREEN")
+    .setTimestamp()
+    .setFooter(message.guild.name);
+  setTimeout(() => {
+    message.guild.channels.find(m => m.name === "mod-log").send(unbanLogEmbed);
+  }, 3000);
 };
-exports.conf = {
-enabled: true,
-guildOnly: true,
-aliases: ['ban-kaldır'],
-permLevel: 0
+module.exports.conf = {
+  aliases: []
 };
-
-exports.help = {
-name: 'unban',
-description: 'Unban komutu - Swenlor',
-usage: 'Unban'
+module.exports.help = {
+  name: "unban"
 };
