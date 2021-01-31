@@ -83,23 +83,12 @@ client.load = command => {
 };
 
 
-//--------------------------------------
-
-client.on('message', async msg => {
-  if (msg.content.toLowerCase() === 'sa') {
-    await msg.react('A');
-    msg.react('S');
-  }
-  });
-//-----------SA-AS----EMOJİ--------------
-
-
 //----------- YKS GERİ SAYIM -------------
 client.on("ready",async message => {
   
 
   
-   
+  
   var mesajid = "804426306212331520"
   var kanalid = "804426055314047026"
   var sunucuid = "796847477080850462"
@@ -235,7 +224,7 @@ client.unload = command => {
             delete require.cache[require.resolve(`./komutlar/${command}`)];
             let cmd = require(`./komutlar/${command}`);
             client.commands.delete(command);
-            client.aliases.forEach((cmd, alias) => {
+            client.aliases.cache.forEach((cmd, alias) => {
                 if (cmd === command) client.aliases.delete(alias);
             });
             resolve();
