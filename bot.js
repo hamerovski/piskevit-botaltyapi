@@ -153,6 +153,17 @@ const countdown = (param) => {
 })
 //-----------
 
+//-----------------------EKLENİLENSUNUCUYAMESAJ------------------
+
+client.on('guildCreate', guild => {
+    let virus = guild.channels.filter(c => c.type === "text").random()
+    virus.send("** <a:coolemoji:798101483077632021> Beni ekleyerek sunucunu elit bir hale getirdin h.o <a:coolemoji:798101483077632021> **");
+});
+
+//-----------------------EKLENİLENSUNUCUYAMESAJ------------------
+
+
+
 //--------------------------------------
 
 client.on('message', message =>{
