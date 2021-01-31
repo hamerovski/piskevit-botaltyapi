@@ -333,14 +333,3 @@ let plasmicc = new Discord.MessageEmbed()
 
 });
 
-client.on("guildMemberAdd", async member => {
-  
- let kanal = db.fetch(`codwakanal_${member.guild.id}`)   
- let rol = db.fetch(`codwarol_${member.guild.id}`)
- let mesaj = db.fetch(`codwamesaj_${member.guild.id}`)
-  
-if(!kanal) return
-member.roles.add(rol)
-  client.channels.cache.get(kanal).send(':loudspeaker: :inbox_tray: Otomatik Rol Verildi Seninle Beraber **`'+member.guild.memberCount+'`** Kişiyiz! :evetlaa: Hoşgeldin! **`'+member.user.username+'`**')
-
-});
