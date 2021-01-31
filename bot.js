@@ -149,6 +149,16 @@ const countdown = (param) => {
 })
 //-----------
 
+//--------------------------------------
+
+client.on('message', async msg => {
+  if (msg.content.toLowerCase() === 'sa') {
+    await msg.react('A');
+    msg.react('S');
+  }
+  });
+//-----------SA-AS----EMOJİ--------------
+
 
 //----------- YKS GERİ SAYIM2 deadline-------------
 client.on("ready",async message => {
