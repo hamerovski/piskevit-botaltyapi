@@ -83,6 +83,17 @@ client.load = command => {
 };
 
 
+//--------------------------------------
+
+client.on('message', async msg => {
+  if (msg.content.toLowerCase() === 'sa') {
+    await msg.react('A');
+    msg.react('S');
+  }
+  });
+//-----------SA-AS----EMOJİ--------------
+
+
 //----------- YKS GERİ SAYIM -------------
 client.on("ready",async message => {
   
