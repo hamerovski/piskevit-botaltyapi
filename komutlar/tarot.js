@@ -20,5 +20,5 @@ exports.conf = {
 };
 
 exports.help = {
-  name: "fal"
+  name: "tarot"
 };
