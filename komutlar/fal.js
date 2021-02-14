@@ -25,7 +25,6 @@ exports.run = (client, message, params) => {
     "**Hamerovski yi sevmiyosan Ayıp Ettin Reis.**",
     "**İki tane yolun var ikisi de aynı yere çıkıyor ama dikkat et birisi engellerle dolu, diğeri aydınlık. Seçim senin elinde olacak.**",
     "**Papatya kızmadı hiçbir zaman yapraklarından fal bakılmasına. Gün olur belki sevmeyi de öğretebilirim umuduyla.**",
-    "**Sana gece şişip sabah sönen bir şey görüyorum, balon gibi ama balona benzemiyor, salam gibi ama salama da benzemiyor.**",
     "**Seni çok seven birisi var, senin için yanıyor, ölüp kavruluyor. İsminin de baş harfi a ile z arasında bir harf.**",
     "**Çevrende birisi var, sana dolanıp durur, üç vakte kadar gelip seni babandan isteyecek, çok mutlu olacaksınız, üç çocuğunuz olacak.**",
     "**Falcıya, büyücüye, kahine giderek, onların söylediklerine inanan, Kur’an-ı kerime inanmamış olur. Hadisi Şerif**",
