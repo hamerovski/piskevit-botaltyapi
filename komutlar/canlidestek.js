@@ -16,9 +16,9 @@ const emoji7 = message.client.emojis.get('??');
       let mesaj = args.slice(0).join(' ');
       let chan = message.channel;
       let destekKanal = "802110831856844811";
-      const embed = new Discord.RichEmbed()
+      const embed = new Discord.MessageEmbed()
         .addField('Hey', `?? Canlı Destek Çağrısı`)
-        .setAuthor(`${message.author.tag} (${message.author.id})`, `${message.author.avatarURL}`)
+        .setAuthor(`${message.author.tag} (${message.author.id})`, `${message.author.avatarURL()}`)
         .setColor("RANDOM")
         .addField(`Bilgiler`, `**Sunucu**: ${message.guild.name} (${message.guild.id}) \n**Kanal**: ${message.channel.name} (${message.channel.id}) \n**Destek İsteyen**: ${message.author.tag} (${message.author.id}) \n**Destek Mesajı**: ${mesaj}`)
         .setFooter("Canlı Destek")
