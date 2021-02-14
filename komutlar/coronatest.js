@@ -1,5 +1,3 @@
-Save New Duplicate & Edit Just Text
-
 const Discord = require('discord.js');
 
 const nefestut = [
