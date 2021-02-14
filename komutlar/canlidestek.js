@@ -4,13 +4,13 @@ const Discord = require('discord.js')
 exports.run = async(client, message, args) => {
   
   
-const emoji1 = message.client.emojis.get('??');
-const emoji2 = message.client.emojis.get('??');
-const emoji3 = message.client.emojis.get('??');
-const emoji4 = message.client.emojis.get('??');
-const emoji5 = message.client.emojis.get('??');
-const emoji6 = message.client.emojis.get('??');
-const emoji7 = message.client.emojis.get('??');
+const emoji1 = message.client.emojis.cache.get('??');
+const emoji2 = message.client.emojis.cache.get('??');
+const emoji3 = message.client.emojis.cache.get('??');
+const emoji4 = message.client.emojis.cache.get('??');
+const emoji5 = message.client.emojis.cache.get('??');
+const emoji6 = message.client.emojis.cache.get('??');
+const emoji7 = message.client.emojis.cache.get('??');
       let isEnabled;
       message.reply("Canlı Destek Kullandınız. Saolun birazdan sahibim veya yetkililer sizin çağrınızı açacaktır :heart:");
       let mesaj = args.slice(0).join(' ');
@@ -18,7 +18,9 @@ const emoji7 = message.client.emojis.get('??');
       let destekKanal = "802110831856844811";
       const embed = new Discord.MessageEmbed()
         .addField('Hey', `?? Canlı Destek Çağrısı`)
-        .setAuthor(`${message.author.tag} (${message.author.id})`, `${message.author.avatarURL()}`)
+        .setAuthor(`${message.author.tag} (${message.
+                   
+                   author.id})`, `${message.author.avatarURL()}`)
         .setColor("RANDOM")
         .addField(`Bilgiler`, `**Sunucu**: ${message.guild.name} (${message.guild.id}) \n**Kanal**: ${message.channel.name} (${message.channel.id}) \n**Destek İsteyen**: ${message.author.tag} (${message.author.id}) \n**Destek Mesajı**: ${mesaj}`)
         .setFooter("Canlı Destek")
