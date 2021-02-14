@@ -91,7 +91,7 @@ message.channel.send(
    .setTitle('İşte senin kartın!')
      .setImage(gifler)
 
-  .setFooter('  WOW')
+  .setFooter('  "tarotanlam" ile anlamına bak!')
    .setTimestamp()
 
   )
