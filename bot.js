@@ -84,6 +84,21 @@ client.load = command => {
 
 
 
+//sahip geldiğinde mesaj atma 
+client.on("message", async message => {
+  const ms = require('parse-ms')
+   let dogrulama = await db.fetch(`sahiponay_${message.author.id}_${message.guild.id}`);
+    let gun = 1800000; 
+    if (dogrulama !== null && gun - (Date.now() - dogrulama) > 0) {
+       
+    } else {
+          if(message.author.id === ayarlar.sahip){
+           db.set(`sahiponay_${message.author.id}_${message.guild.id}`, Date.now())
+            message.channel.send("Hizzaya Geçin işte Benim Sahibim").then(msg => msg.delete (15000))
+            }
+        }
+       
+}); 
 
 
 
