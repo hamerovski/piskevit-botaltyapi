@@ -34,12 +34,12 @@ const corona = nefestut[Math.floor(Math.random() * nefestut.length)];
 exports.conf = {
   enabled: true,//True => Komut açık, False => Komut kapalı 
   guildOnly: false, //True => Sadece Servere Özel, False => Heryerde kullanılabilir
-  aliases: ['nefes-tut'],//Komutun farklı kullanımları ÖR: !ping, !p
+  aliases: ['koronatest'],//Komutun farklı kullanımları ÖR: !ping, !p
   permLevel: 0 //kimlerin kullanabileceğini  (bot.js dosyasında perm leveller yazıyor)
 };
 
 exports.help = {
-  name: 'corona-test',//Komutun adı (Komutu girerken lazım olucak)
+  name: 'coronatest',//Komutun adı (Komutu girerken lazım olucak)
   description: 'corona testi',//Komutun Açıklaması
-    kategori: 'eğlence',// Komutun olduğu kategori. kategoriler: bot-sunucu-yetkili-kullanıcı
+  usage: 'nefestut' 
 }
