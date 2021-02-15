@@ -26,6 +26,5 @@ var oyun = [
   console.log(` `);
   console.log(` `);
   console.log(`|  Bilgi : Tüm Komutlar Yüklendi !                    |`);
-  client.user.setStatus("dnd");
   console.log(`|  Bilgi : Aktivite Ayarlandı                         |`);
 };
