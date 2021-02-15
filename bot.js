@@ -82,11 +82,10 @@ client.load = command => {
     });
 };
 
-
 client.login(ayarlar.token);
   client.on("ready", async () => {
    log("Durum başarıyla ayarlandı")
-      client.user.setActivity("/yardım | Yenilenen Yardım Menüsü", 
+      client.user.setActivity("/yardım | Yardım Menüsü!", 
         { url: 'https://twitch.tv/.',
         type: 'STREAMING' }); 
 })
