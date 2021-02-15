@@ -7,7 +7,7 @@ var prefix = ayarlar.prefix;
 module.exports = client => {
 var oyun = [
         "🔥 /yardım | Yardım Menüsü",
-        "Sizler için çalışıyoruz...",
+        "🌈 Sizler için çalışıyoruz...",
         "👊 /napim | Lafı Çak!",
         "🦠 /koronatest | Test Yaptır!",
         "💸 /döviz | Güncel Döviz Fiyatları",
