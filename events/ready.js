@@ -7,9 +7,12 @@ var prefix = ayarlar.prefix;
 
 module.exports = client => {
 var oyun = [
-        "𝙌𝙐𝘽𝙄𝘾 𝘿𝙀𝙎𝙄𝙂𝙉™ 🔥",
-        "⭐️ Created By The 𓆩 ΛЯΞS 𓆪 ⭐️",
-        "⭐️ discord.gg/KFk7jtTsxd ⭐️"  
+        "🔥 /yardım | Yardım Menüsü",
+        "⭐️ /napim | Lafı Çak!",
+        "⭐️ /koronatest | Test Yaptır!",
+        "⭐️ /döviz | Güncel Döviz Fiyatları",
+        "⭐️ /bitcoin | Bitcoin Fiyatları",
+        "⭐️ /tarot | Bir Kart Çek! "  
     ];
 
     setInterval(function() {
