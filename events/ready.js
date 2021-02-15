@@ -5,14 +5,12 @@ const ayarlar = require('../ayarlar.json');
 var prefix = ayarlar.prefix;
 
 module.exports = client => {
-          console.log(`|  Bilgi : Tüm Komutlar Yüklendi !                    |`);
-          console.log(`|  Bilgi : Piskevit İsmi İle Giriş Yapıldı !                    |`);
 var oyun = [
         "🔥 /yardım | Yardım Menüsü",
-        "⭐️ /napim | Lafı Çak!",
-        "⭐️ /koronatest | Test Yaptır!",
-        "⭐️ /döviz | Güncel Döviz Fiyatları",
-        "⭐️ /bitcoin | Bitcoin Fiyatları",
+        "👊 /napim | Lafı Çak!",
+        "🦠 /koronatest | Test Yaptır!",
+        "💸 /döviz | Güncel Döviz Fiyatları",
+        "💲 /bitcoin | Bitcoin Fiyatları",
         "⭐️ /tarot | Bir Kart Çek! "  
     ];
 
@@ -26,11 +24,7 @@ var oyun = [
   console.log(` `);
   console.log(` `);
   console.log(` `);
-  console.log(`+-----------------------------------------------------+`);
   console.log(`|  Bilgi : Tüm Komutlar Yüklendi !                    |`);
   client.user.setStatus("dnd");
   console.log(`|  Bilgi : Aktivite Ayarlandı                         |`);
-  console.log(`|  Id : ` + ayarlar.id + `                            |`);
-  console.log(`+-----------------------------------------------------+`);
-
 };
