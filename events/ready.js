@@ -19,7 +19,7 @@ var oyun = [
 
         var random = Math.floor(Math.random()*(oyun.length-0+1)+0);
 
-        client.user.setActivity(oyun[random], "𝙌𝙐𝘽𝙄𝘾 𝘿𝙀𝙎𝙄𝙂𝙉™" );
+        client.user.setActivity(oyun[random]);
         }, 2 * 2500);
   
   console.log(` `);
