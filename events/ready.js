@@ -28,7 +28,7 @@ var oyun = [
   console.log(`+-----------------------------------------------------+`);
   console.log(`|  Bilgi : Tüm Komutlar Yüklendi !                    |`);
   client.user.setStatus("dnd");
-  client.user.setActivity(`${client.guilds.size} sunucu + ${client.users.size} kullanıcı`);
+  client.user.setActivity(`BOT: Şu an ` + client.channels.size + ` adet kanala, ` + client.guilds.size + ` adet sunucuya ve ` + client.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString() + ` kullanıcıya hizmet veriliyor!`);
   console.log(`|  Bilgi : Aktivite Ayarlandı                         |`);
   console.log(`|  Bilgi : Şu An `+ client.guilds.size + ` Adet Sunucuda Aktif Durumdayım     |`);
   console.log(`|  Şuanki Ismim : ` + ayarlar.isim + `                        |`);
