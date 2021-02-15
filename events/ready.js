@@ -19,7 +19,7 @@ var oyun = [
 
         var random = Math.floor(Math.random()*(oyun.length-0+1)+0);
 
-        client.user.setActivity(oyun[random]);
+        client.user.setActivity(oyun[random], "https://www.twitch.com/.");
         }, 2 * 2500);
   
   console.log(` `);
@@ -29,8 +29,6 @@ var oyun = [
   console.log(`|  Bilgi : Tüm Komutlar Yüklendi !                    |`);
   client.user.setStatus("dnd");
   console.log(`|  Bilgi : Aktivite Ayarlandı                         |`);
-  console.log(`|  Bilgi : Şu An `+ client.guilds.size + ` Adet Sunucuda Aktif Durumdayım     |`);
-  console.log(`|  Şuanki Ismim : ` + ayarlar.isim + `                        |`);
   console.log(`|  Id : ` + ayarlar.id + `                            |`);
   console.log(`+-----------------------------------------------------+`);
 
