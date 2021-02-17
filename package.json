@@ -13,6 +13,7 @@
     "chalk": "^4.1.0",
     "moment": "^2.29.1",
     "jimp": "^0.16.1",
+    "discordjs-ytdl": "^2.2.0",
     "parse-ms": "^2.1.0",
     "quick.db": "^7.1.2",
     "snekfetch": "^4.0.4",
