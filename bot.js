@@ -86,6 +86,11 @@ client.login(ayarlar.token);
 
 
 
+client.on('message', msg => {   if (msg.author.bot) return;    
+ if (msg.content.toLowerCase().includes('günaydın'))msg.reply('🌞 Günaydın :)');   if (msg.content.toLowerCase().includes('iyi geceler')) msg.reply(' 🌙 Sana da iyi geceler');  if (msg.content.toLowerCase().includes('iyi akşamlar')) msg.reply('🌓 sana da iyi akşamlar'); 
+});
+
+
 
 //----------- YKS GERİ SAYIM -------------
 client.on("ready",async message => {
