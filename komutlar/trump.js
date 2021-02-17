@@ -1,32 +1,31 @@
-const Discord = require('discord.js');
-const db = require('quick.db');
+const jimp = require("jimp")
 
 exports.run = async (client, message, args) => {
-  let yazı = args.slice(0).join(' ');
-   if (yazı.length < 1) return message.reply('Ne Yazdırmak İstiyorsun');
-var request = require('request');
-request(`https://api.ysfteams.cf/api/trump/${yazı}`, function (error, response, body) {
-    if (error) return console.log('Hata:', error);
-    else if (!error) {
-        var veri = JSON.parse(body);
-        const embed = new Discord.RichEmbed()
-        .setColor("RANDOM")
-        .setImage(veri.message)
-    return message.channel.sendEmbed(embed);
-    } 
-    })
-};
 
-    
+        let img = jimp.read("https://cdn.discordapp.com/attachments/747483679890341908/756156592449257602/trump.png")
+        if (!args[0]) return message.reply("Indicate that Trump should speak.")
+        img.then(image => {
+            jimp.loadFont(jimp.FONT_SANS_32_BLACK).then(font => {
+                image.resize(1000,500)
+                image.print(font, 22, 120, args.join(" "), 600)
+                image.getBuffer(jimp.MIME_PNG, (err, i) => {
+                    message.channel.send({files: [{ attachment: i, name: "trump.png"}]})
+                })
+            })
+        })
+    }
 
-exports.conf = {
-  enabled: true,
-  guildOnly: false,
-  aliases: []
-};
 
-exports.help = {
-  name: 'trump',
-  description: 'trump is coming',
-  usage: 'trump'
-};
+
+    exports.conf = {
+        enabled: true,
+        guildOnly: false,
+        aliases: ['trump', 'trump-tweet'],
+        permLevel: 0
+      };
+       
+      exports.help = {
+        name: "trump",
+        description: "Bot i",
+        usage: "istatistik"
+      };
