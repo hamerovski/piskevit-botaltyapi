@@ -151,7 +151,12 @@ const countdown = (param) => {
   
   
 })
-//-----------
+//-----------------SESE GİRME KODU-----------------------
+
+client.on("ready", () => {
+  client.channels.get("797643517652369458").join();   
+})
+
 
 //-----------------------EKLENİLENSUNUCUYAMESAJ------------------
 
