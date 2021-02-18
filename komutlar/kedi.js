@@ -9,7 +9,7 @@ exports.run = async(client, message, args) => {
     .get('https://aws.random.cat/meow');
     if(!{body}) return message.channel.send("Bir hata oluştu. Tekrar deneyiniz.")
 
-    const embed = new Discord.RichEmbed()
+    const embed = new Discord.MessageEmbed()
     .setColor('GREEN')
     .setDescription("**"+message.author.username+"**, İşte bir kedi !")
     .setImage(body.file)
