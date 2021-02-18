@@ -13,7 +13,7 @@ exports.run = (client, message, args, func) => {
     }
     
     db.delete(`prefix_${message.guild.id}`)
-    message.channel.send(`Başarılı. Mevcut prefix \`!!\``)
+    message.channel.send(`Başarılı. Mevcut prefix \`/\``)
             message.react('617413726768988160')
     return
   }
