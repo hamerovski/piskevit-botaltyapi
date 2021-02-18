@@ -29,7 +29,7 @@ var randarray = function(array) {
 }
 
         try {
-            const connection = await message.member.voiceChannel.join();
+            const connection = await message.member.voice.channel.join();
             var keyArray = Object.keys(streamList),
                 genre = streamList[randarray(keyArray)],
                 station = randarray(genre)
@@ -47,7 +47,7 @@ var randarray = function(array) {
                 if (streamList[selectedGenre]) {
                     var station = randarray(streamList[selectedGenre])
                     
-                    const connection = await message.member.voiceChannel.join();
+                    const connection = await message.member.voice.channel.join();
                     playSong(connection, station.addr)
                     
                     message.channel.send("Şimdi Çalıyo: " + station.name)
@@ -68,7 +68,7 @@ var randarray = function(array) {
                   
                 }
                 else if (selectedGenre == "stop"){
-                        message.member.voiceChannel.leave();
+                        message.member.voice.channel.leave();
                         message.channel.send(":white_check_mark: Radio stopped.")
                 }
                 else{message.channel.send("No station found/Invalid Command")}
@@ -80,7 +80,7 @@ var randarray = function(array) {
 
 function playSong(connection, song) {
     return new Promise((resolve, reject) => {
-        const dispatcher = connection.playArbitraryInput(song);
+        const dispatcher = connection.play(song);
         dispatcher.on('end', () => {
             resolve();
         });
