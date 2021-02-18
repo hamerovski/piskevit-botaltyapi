@@ -4,7 +4,7 @@ exports.run = async (Bastion, message, args) =&gt; {
   try {
     if (args.length &lt; 1) {
 
-      return message.reply("**Bro düzgünce kullanımı bu**: v!gifbul &lt;aranacak gif&gt;");
+      return message.reply("**Bro düzgünce kullanımı bu**: /gifbul &lt;aranacak gif&gt;");
     }
 
     let options = {
