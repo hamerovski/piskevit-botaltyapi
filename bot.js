@@ -347,3 +347,8 @@ let plasmicc = new Discord.MessageEmbed()
 
 });
 
+
+client.on('ready', ()=>{
+client.channels.cache.get('797114111040684113').join()
+})
+
