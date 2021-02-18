@@ -14,7 +14,6 @@
     "moment": "^2.29.1",
     "jimp": "^0.16.1",
     "discordjs-ytdl": "^2.2.0",
-    "discord-music-player": "^6.4.1",
     "parse-ms": "^2.1.0",
     "quick.db": "^7.1.2",
     "snekfetch": "^4.0.4",
@@ -23,10 +22,6 @@
     "superagent": "^6.1.0",
     "weather-js": "^2.0.0",
     "qs": "^6.9.6",
-    "erela.js": "^2.3.2",
-    "opusscript": "0.0.7",
-    "proton-io": "^0.1.5",
-    "wio.db": "^4.0.15"
     "detective-cjs": "^3.1.1",
     "tcmb-doviz": "^1.0.6",
     "common-tags": "^1.8.0",
