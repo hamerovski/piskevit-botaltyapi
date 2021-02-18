@@ -12,6 +12,8 @@ const express = require('express');
 require('./util/eventLoader.js')(client);
 const path = require('path');
 const snekfetch = require('snekfetch');
+const YouTube = require("simple-youtube-api");
+const ytdl = require("ytdl-core");
 
 const app = express();
 app.get("/", (request, response) => {
