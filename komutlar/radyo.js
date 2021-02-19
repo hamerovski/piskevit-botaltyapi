@@ -1,102 +1,120 @@
-const Discord = require("discord.js");
-const ayarlar = require('../ayarlar.json');
-const prefix = ayarlar.prefix;
+const db = require('quick.db')
+const Discord = require('discord.js');
+const client = new Discord.Client();
 
-exports.run = async (client, message) => {
-
-var streamList = {
-    damar: [{
-        addr: "https://yayin.damarfm.com:8080/;stream/1/",
-        name: "Radyo Damar #1"
-    }],
-    "arabesk": [{
-        addr: "https://playerservices.streamtheworld.com/api/livestream-redirect/SC008_SO1_SC?/;",
-        name: "Radyo Arabesk #1"
-    }],
-    trap: [{
-            addr: "https://radyodinle1.turkhosted.com/yayin?uri=95.173.188.166:9984/&tkn=_LDNX_iKT-XUJXbZyEcW_g&tms=1589039843",
-            name: "Radyo Türkçe Rap #1"
-        }
-    ],
-    pop: [{
-        addr: "https://playerservices.streamtheworld.com/api/livestream-redirect/SUPER2_SC?/;",
-        name: "Radyo Pop #1"
-    }]
+const radyo = {
+    alem    : "http://scturkmedya.radyotvonline.com/stream/80/",
+    cnnturk : "https://radyo.dogannet.tv/cnnturk",
+    fenomen : "http://fenomen.listenfenomen.com/fenomen/128/icecast.audio",
+    kral    : "http://46.20.3.204/",
+    kralpop : "http://46.20.3.201/;",
+    line    : "http://radioline.fm:8000/",
+    metro   : "http://17773.live.streamtheworld.com/METRO_FM_SC",
+    radyod  : "http://radyo.dogannet.tv/radyod",
+    superfm : "http://17733.live.streamtheworld.com/SUPER_FM_SC",
+    slow    : "https://radyo.dogannet.tv/slowturk",
+    JoyFm    : "https://playerservices.streamtheworld.com/api/livestream-redirect/JOY_FM.mp3",
+    fenomenfm : "https://fenomenturk.listenfenomen.com/fenomenturk/128/icecast.audio ",
+     show:   "http://46.20.3.229/;",
+    taksimclup: "http://cast1.taksim.fm:8016"
 
 }
-var randarray = function(array) {
-    return array[Math.floor(Math.random() * array.length)];
-}
 
-        try {
-            const connection = await message.member.voice.channel.join();
-            var keyArray = Object.keys(streamList),
-                genre = streamList[randarray(keyArray)],
-                station = randarray(genre)
-            playSong(connection, station.addr)
+exports.run = function(bot, message, args) {
+
+  message.delete(10000).catch(console.error);
+    if (!message.member.voice.channel) return message.reply("**:bangbang: Sana bağlanmam için ilk önce sesli bir kanala katılmalısın. :bangbang:**").then(m => m.delete(15000)).catch(console.error);
+    else {
+        if (!args[0] || args[0] === "help" || args[0] === "yardım") {
+            message.reply("**\n \n  🎵 Radyo İstasyonları 🎵 \n \n``1 = AlemFM``  \n``2 = CnnTurkFM``\n``3 = FenomenFM`` \n``4 = KralFM``\n``5 = KralPopFM``\n``6 = LineFM``\n``7 = MetroFM`` \n``8 = RadyoDFM``\n``9 = SuperFM``\n``10 = SlowTurk``\n``11 = JoyFM``\n``12 = FenomenTURK``\n``13 = SlowFm``\n``14 = TaksimClup`` \n \nÖrnek kullanım: m!radyo <Radyo Numarası> \nKapatmak için: m!radyo kapat**").then(m => m.delete(40000)).catch(console.error);
+        } else if (args[0].toLowerCase() === "alem" || args[0] === "alem") {
+            message.member.voice.channel.join().then(connection => {
+                var dispatcher = connection.play(radyo.alem);
+                message.reply("🎧 | **Başarılı! `AlemFM` çalınıyor.**").then(m => m.delete(10000)).catch(console.error);
+            })
+        } else if (args[0].toLowerCase() === "cnn" || args[0] === "2") {
+            message.member.voice.channel.join().then(connection => {
+                var dispatcher = connection.play(radyo.cnnturk);
+                message.reply("🎧 | **Başarılı! `CNNTurk` çalınıyor.**").then(m => m.delete(10000)).catch(console.error);
+            })
+        } else if (args[0].toLowerCase() === "fenomen" || args[0] === "3") {
+            message.member.voice.channel.join().then(connection => {
+                var dispatcher = connection.play(radyo.fenomen);
+                message.reply("🎧 | **Başarılı! 🎻`FenomenFM`🎻 çalınıyor.**").then(m => m.delete(10000)).catch(console.error);
+            })
+        } else if (args[0].toLowerCase() === "kral" || args[0] === "4") {
+            message.member.voice.channel.join().then(connection => {
+                var dispatcher = connection.play(radyo.kral);
+                message.reply("🎧 | **Başarılı! `KralFM` çalınıyor.**").then(m => m.delete(10000)).catch(console.error);
+            })
+        } else if (args[0].toLowerCase() === "kralpop" || args[0] === "5") {
+            message.member.voice.channel.join().then(connection => {
+                var dispatcher = connection.play(radyo.kralpop);
+                message.reply("🎧 | **Başarılı! `KralPOP` çalınıyor.**").then(m => m.delete(10000)).catch(console.error);
+            })
+        } else if (args[0].toLowerCase() === "line" || args[0] === "6") {
+            message.member.voice.channel.join().then(connection => {
+                var dispatcher = connection.play(radyo.line);
+                message.reply("🎧 | **Başarılı! `LineFM` çalınıyor.**").then(m => m.delete(10000)).catch(console.error);
+            })
+        } else if (args[0].toLowerCase() === "metro" || args[0] === "7") {
+            message.member.voice.channel.join().then(connection => {
+                var dispatcher = connection.play(radyo.metro);
+                message.reply("🎧 | **Başarılı! `MetroFM` çalınıyor.**").then(m => m.delete(10000)).catch(console.error);
+            })
+        }  else if (args[0].toLowerCase() === "radyod" || args[0] === "8") {
+            message.member.voice.channel.join().then(connection => {
+                var dispatcher = connection.play(radyo.radyod);
+                message.reply("🎧 | **Başarılı! `Radyo D FM` çalınıyor.**").then(m => m.delete(10000)).catch(console.error);
+            })
+        } else if (args[0].toLowerCase() === "super" || args[0] === "9") {
+            message.member.voice.channel.join().then(connection => {
+                var dispatcher = connection.play(radyo.superfm);
+                message.reply("🎧 | **Başarılı! `SüperFM` çalınıyor.**").then(m => m.delete(10000)).catch(console.error);
+            })
+        } else if (args[0].toLowerCase() === "slow" || args[0] === "10") {
+           message.member.voice.channel.join().then(connection => {
+                var dispatcher = connection.play(radyo.slow);
+                message.reply("🎧 | **Başarılı! `SlowTÜRK` çalınıyor.**").then(m => m.delete(10000)).catch(console.error);
+            })
+            } else if (args[0].toLowerCase() === "Joy" || args[0] === "11") {
+            message.member.voice.channel.join().then(connection => {
+                var dispatcher = connection.play(radyo.JoyFm);
+                message.reply("🎧 | **Başarılı! `JoyFM` çalınıyor.**").then(m => m.delete(10000)).catch(console.error);
+            })
+    
+            } else if (args[0].toLowerCase() === "FENOMEN TURK" || args[0] === "12") {
+            message.member.voice.channel.join().then(connection => {
+                var dispatcher = connection.play(radyo.fenomenfm);
+                message.reply("🎧 | **Başarılı! `FenomenTÜRK` çalınıyor.**").then(m => m.delete(10000)).catch(console.error);
+            })
             
-            message.channel.send("Now Playing: " + station.name)
-        } catch (err) {
-            message.channel.send(":x: You need to be in a voice channel to play radio.")
-        }
-     
-
-        try {
-            if (message.content.split(prefix + "radio ")[1]) {
-                var selectedGenre = message.content.split(prefix + "radio ")[1]
-                if (streamList[selectedGenre]) {
-                    var station = randarray(streamList[selectedGenre])
-                    
-                    const connection = await message.member.voice.channel.join();
-                    playSong(connection, station.addr)
-                    
-                    message.channel.send("Şimdi Çalıyo: " + station.name)
-                } else if (selectedGenre=="help"){
-                  message.channel.send({
-  "embed": {
-    "title": "Help",
-    "description":  `Ways to use this bot: \n\n **Note: You need to be in a voice channel to use these commands. Also, I do not control radio ads.**\n\n **!radio** \n Selects random station\n **!radio [genre]** \nPlay a station from this genre. Currently there are jazz, classical, 80s, rock, dance, gaming, kpop, and news stations.\n**!radio stop** \n Stops radio and exits channel`,
-    "color": 16557315,
-    "footer": {
-      "text": "Bot by zbot473#4857"
-    },
-    "thumbnail": {
-      "url": "https://cdn.discordapp.com/avatars/515741819364048909/e9a955e7d2fab03f7f7d09cf2b7f8961.png"
-    },
-  }
-})
-                  
-                }
-                else if (selectedGenre == "stop"){
-                        message.member.voice.channel.leave();
-                        message.channel.send(":white_check_mark: Radio stopped.")
-                }
-                else{message.channel.send("No station found/Invalid Command")}
-            }
-        } catch (err) {
-            message.channel.send(":x: You need to be in a voice channel to play radio.")
+                 } else if (args[0].toLowerCase() === "show" || args[0] === "13") {
+            message.member.voice.channel.join().then(connection => {
+                var dispatcher = connection.play(radyo.show);
+                message.reply("🎧 | **Başarılı! `ShowFM` çalınıyor.**").then(m => m.delete(10000)).catch(console.error);
+            })
+            
+                 } else if (args[0].toLowerCase() === "taksimclup" || args[0] === "14") {
+            message.member.voice.channel.join().then(connection => {
+              var dispatcher = connection.play(radyo.taksimclup);
+                message.reply("🎧 | **Başarılı! `TaksimClup` çalınıyor.**").then(m => m.delete(10000)).catch(console.error);
+          })                                                                                        
+        } else if (args[0].toLowerCase() === "kapat" || args[0].toLowerCase() === "bitir") {
+                message.member.voice.channel.leave();
+    return message.channel.send(`Bu kanaldan ayrıldım ${message.member.voice.channel}.`);
         }
     }
-
-function playSong(connection, song) {
-    return new Promise((resolve, reject) => {
-        const dispatcher = connection.play(song);
-        dispatcher.on('end', () => {
-            resolve();
-        });
-    });
-} //song function
-
-
+    }
 exports.conf = {
-    enabled: true,
-    guildOnly: false,
-    aliases: ["radio"],
-    permLevel: 0
+  enabled: true,
+  guildOnly: true,
+  aliases: [],
+  permLevel: 0
 };
 
 exports.help = {
-    name : "radyo",
-    usage: "radyo",
-    description: "radyo"
+  name: 'radyo',
+  description: '',
+  usage: 'radyo'
 };
