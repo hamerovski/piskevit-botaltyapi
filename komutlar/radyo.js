@@ -3,8 +3,8 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 const radyo = 
-    RadyoDamar: "https://yayin.damarfm.com:8080/;stream/1/"
-    RadyoArabesk: "https://playerservices.streamtheworld.com/api/livestream-redirect/SC008_SO1_SC?/;"
+    RadyoDamar : "https://yayin.damarfm.com:8080/;stream/1/"
+    RadyoArabesk : "https://playerservices.streamtheworld.com/api/livestream-redirect/SC008_SO1_SC?/;"
     alem    : "http://scturkmedya.radyotvonline.com/stream/80/",
     cnnturk : "https://radyo.dogannet.tv/cnnturk",
     fenomen : "http://fenomen.listenfenomen.com/fenomen/128/icecast.audio",
@@ -19,7 +19,6 @@ const radyo =
     fenomenfm : "https://fenomenturk.listenfenomen.com/fenomenturk/128/icecast.audio ",
      show:   "http://46.20.3.229/;",
     taksimclup: "http://cast1.taksim.fm:8016"
-
 }
 
 exports.run = function(bot, message, args) {
