@@ -3,8 +3,6 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 const radyo = {
-    RadyoDamar : "https://yayin.damarfm.com:8080/;stream/1/",
-    RadyoArabesk : "https://playerservices.streamtheworld.com/api/livestream-redirect/SC008_SO1_SC?/;",
     alem    : "http://scturkmedya.radyotvonline.com/stream/80/",
     cnnturk : "https://radyo.dogannet.tv/cnnturk",
     fenomen : "http://fenomen.listenfenomen.com/fenomen/128/icecast.audio",
@@ -18,7 +16,9 @@ const radyo = {
     JoyFm    : "https://playerservices.streamtheworld.com/api/livestream-redirect/JOY_FM.mp3",
     fenomenfm : "https://fenomenturk.listenfenomen.com/fenomenturk/128/icecast.audio ",
      show:   "http://46.20.3.229/;",
-    taksimclup: "http://cast1.taksim.fm:8016"
+    taksimclup: "http://cast1.taksim.fm:8016",
+    RadyoDamar : "https://yayin.damarfm.com:8080/;stream/1/",
+    RadyoArabesk : "https://playerservices.streamtheworld.com/api/livestream-redirect/SC008_SO1_SC?/;"
 }
 
 exports.run = function(bot, message, args) {
@@ -100,6 +100,18 @@ exports.run = function(bot, message, args) {
             message.member.voice.channel.join().then(connection => {
               var dispatcher = connection.play(radyo.taksimclup);
                 message.reply("🎧 | **Başarılı! `TaksimClup` çalınıyor.**").then(m => m.delete(10000)).catch(console.error);
+          })
+            
+                 } else if (args[0].toLowerCase() === "RadyoDamar" || args[0] === "15") {
+            message.member.voice.channel.join().then(connection => {
+              var dispatcher = connection.play(radyo.RadyoDamar);
+                message.reply("🎧 | **Başarılı! `RadyoDamar` çalınıyor.**").then(m => m.delete(10000)).catch(console.error);
+          })
+            
+                 } else if (args[0].toLowerCase() === "RadyoArabesk" || args[0] === "16") {
+            message.member.voice.channel.join().then(connection => {
+              var dispatcher = connection.play(radyo.RadyoArabesk);
+                message.reply("🎧 | **Başarılı! `RadyoArabesk` çalınıyor.**").then(m => m.delete(10000)).catch(console.error);
           })                                                                                        
         } else if (args[0].toLowerCase() === "kapat" || args[0].toLowerCase() === "bitir") {
                 message.member.voice.channel.leave();
