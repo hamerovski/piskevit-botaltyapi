@@ -16,7 +16,6 @@
     "discordjs-ytdl": "^2.2.0",
     "ffmpeg-static": "^4.2.7",
     "opusscript": "^0.0.7",
-    "discord-music-player": "^6.4.1",
     "parse-ms": "^2.1.0",
     "quick.db": "^7.1.2",
     "snekfetch": "^4.0.4",
