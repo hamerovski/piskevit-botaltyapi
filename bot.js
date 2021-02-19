@@ -12,7 +12,6 @@ const express = require('express');
 require('./util/eventLoader.js')(client);
 const path = require('path');
 const snekfetch = require('snekfetch');
-const { join } = require('path')
 const { Player } = require("discord-music-player")
 const player = new Player(client)
 client.player = player;
