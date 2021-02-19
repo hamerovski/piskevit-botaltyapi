@@ -4,7 +4,7 @@ const Alone = "#36393e";
 const AloneDogru = "#22BF41";
 const AloneHata = "#f30707";
 const db = require("quick.db");
-const ayarlar = require("../ayarlar/bot.json");
+const ayarlar = require("../ayarlar.json");
 
 module.exports.run = async (client, message) => {
 /// GEREKLİLER ///  
