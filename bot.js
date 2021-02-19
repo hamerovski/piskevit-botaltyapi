@@ -12,8 +12,11 @@ const express = require('express');
 require('./util/eventLoader.js')(client);
 const path = require('path');
 const snekfetch = require('snekfetch');
-const YouTube = require("simple-youtube-api");
-const ytdl = require("ytdl-core");
+const { join } = require('path')
+const { Player } = require("discord-music-player")
+const player = new Player(client)
+client.player = player;
+client.commands = new Discord.Collection();
 
 const app = express();
 app.get("/", (request, response) => {
