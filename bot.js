@@ -92,7 +92,19 @@ client.on('message', msg => {   if (msg.author.bot) return;
  if (msg.content.toLowerCase().includes('günaydın'))msg.reply('🌞 Günaydın :)');   if (msg.content.toLowerCase().includes('iyi geceler')) msg.reply(' 🌙 Sana da iyi geceler');  if (msg.content.toLowerCase().includes('iyi akşamlar')) msg.reply('🌓 sana da iyi akşamlar'); 
 });
 
+//-------------Kendini Sağirlaştirma Komutu ---------------\\
 
+client.on('voiceStateUpdate', async (___, newState) => {
+if (
+newState.member.user.bot &&
+newState.channelID &&
+newState.member.user.id == client.user.id &&
+!newState.selfDeaf
+) {
+newState.setSelfDeaf(true);
+}
+});
+//---------------------------------------------------------\\
 
 //----------- YKS GERİ SAYIM -------------
 client.on("ready",async message => {
