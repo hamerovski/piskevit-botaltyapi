@@ -27,7 +27,7 @@ exports.run = function(bot, message, args) {
     if (!message.member.voice.channel) return message.reply("**:bangbang: Sana bağlanmam için ilk önce sesli bir kanala katılmalısın. :bangbang:**").then(m => m.delete(15000)).catch(console.error);
     else {
         if (!args[0] || args[0] === "help" || args[0] === "yardım") {
-            message.reply("**\n \n  🎵 Radyo İstasyonları 🎵 \n \n``1 = AlemFM``  \n``2 = CnnTurkFM``\n``3 = FenomenFM`` \n``4 = KralFM``\n``5 = KralPopFM``\n``6 = LineFM``\n``7 = MetroFM`` \n``8 = RadyoDFM``\n``9 = SuperFM``\n``10 = SlowTurk``\n``11 = JoyFM``\n``12 = FenomenTURK``\n``13 = SlowFm``\n``14 = TaksimClup`` \n \nÖrnek kullanım: /radyo <Radyo Numarası> \nKapatmak için: /radyo kapat**").then(m => m.delete(40000)).catch(console.error);
+            message.reply("**\n \n  🎵 Radyo İstasyonları 🎵 \n \n``1 = AlemFM``  \n``2 = CnnTurkFM``\n``3 = FenomenFM`` \n``4 = KralFM``\n``5 = KralPopFM``\n``6 = LineFM``\n``7 = MetroFM`` \n``8 = RadyoDFM``\n``9 = SuperFM``\n``10 = SlowTurk``\n``11 = JoyFM``\n``12 = FenomenTURK``\n``13 = SlowFm``\n``14 = TaksimClup``\n``15 = RadyoDamar``\n``16 = RadyoArabesk`` \n \nÖrnek kullanım: /radyo <Radyo Numarası> \nKapatmak için: /radyo kapat**").then(m => m.delete(40000)).catch(console.error);
         } else if (args[0].toLowerCase() === "alem" || args[0] === "alem") {
             message.member.voice.channel.join().then(connection => {
                 var dispatcher = connection.play(radyo.alem);
