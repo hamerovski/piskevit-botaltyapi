@@ -17,8 +17,8 @@ const radyo = {
     fenomenfm : "https://fenomenturk.listenfenomen.com/fenomenturk/128/icecast.audio ",
      show:   "http://46.20.3.229/;",
     taksimclup: "http://cast1.taksim.fm:8016",
-    RadyoDamar : "https://yayin.damarfm.com:8080/;stream/1/",
-    RadyoArabesk : "https://playerservices.streamtheworld.com/api/livestream-redirect/SC008_SO1_SC?/;"
+    damar : "https://yayin.damarfm.com:8080/;stream/1/",
+    arabesk : "https://playerservices.streamtheworld.com/api/livestream-redirect/SC008_SO1_SC?/;"
 }
 
 exports.run = function(bot, message, args) {
@@ -102,15 +102,15 @@ exports.run = function(bot, message, args) {
                 message.reply("🎧 | **Başarılı! `TaksimClup` çalınıyor.**").then(m => m.delete(10000)).catch(console.error);
           })
             
-                 } else if (args[0].toLowerCase() === "RadyoDamar" || args[0] === "15") {
+                 } else if (args[0].toLowerCase() === "damar" || args[0] === "15") {
             message.member.voice.channel.join().then(connection => {
-              var dispatcher = connection.play(radyo.RadyoDamar);
+              var dispatcher = connection.play(radyo.damar);
                 message.reply("🎧 | **Başarılı! `RadyoDamar` çalınıyor.**").then(m => m.delete(10000)).catch(console.error);
           })
             
-                 } else if (args[0].toLowerCase() === "RadyoArabesk" || args[0] === "16") {
+                 } else if (args[0].toLowerCase() === "arabesk" || args[0] === "16") {
             message.member.voice.channel.join().then(connection => {
-              var dispatcher = connection.play(radyo.RadyoArabesk);
+              var dispatcher = connection.play(radyo.arabesk);
                 message.reply("🎧 | **Başarılı! `RadyoArabesk` çalınıyor.**").then(m => m.delete(10000)).catch(console.error);
           })                                                                                        
         } else if (args[0].toLowerCase() === "kapat" || args[0].toLowerCase() === "bitir") {
