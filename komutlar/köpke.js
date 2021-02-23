@@ -4,7 +4,7 @@ const superagent = require('superagent');
 exports.run = async (client, message, args) => {
 
     let {body} = await superagent
-    .get(`https://random.dog/`)
+    .get(`https://dog.ceo/api/breeds/image/random`)
 
     let dogembed = new Discord.RichEmbed()
     .setColor("GREEN")
