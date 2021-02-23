@@ -6,7 +6,7 @@ exports.run = async (client, message, args) => {
     let {body} = await superagent
     .get(`https://dog.ceo/api/breeds/image/random`)
 
-    let dogembed = new Discord.RichEmbed()
+    let dogembed = new Discord.MessageEmbed()
     .setColor("GREEN")
     .setTitle("Köpek")
     .setImage('body.file')
