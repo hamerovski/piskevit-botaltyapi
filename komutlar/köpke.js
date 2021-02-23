@@ -6,7 +6,7 @@ exports.run = async(client, message, args) => {
     let msg = await message.channel.send("Resim aranıyor...");
 
     let {body} = await superagent 
-    .get('http://loremflickr.com/320/240/dog');
+    .get('api.giphy.com/v1/gifs/random');
     if(!{body}) return message.channel.send("Bir hata oluştu. Tekrar deneyiniz.")
 
     const embed = new Discord.MessageEmbed()
