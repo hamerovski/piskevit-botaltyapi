@@ -1,30 +1,35 @@
 const Discord = require('discord.js');
 const superagent = require('superagent');
 
-exports.run = async (client, message, args) => {
 
-    let {body} = await superagent
-    .get(`https://random.dog/woof.json`)
+exports.run = async(client, message, args) => {
+    let msg = await message.channel.send("Resim aranıyor...");
 
-    let dogembed = new Discord.MessageEmbed()
-    .setColor("GREEN")
-    .setTitle("Köpek")
-    .setImage('body.file')
+    let {body} = await superagent 
+    .get('https://random.dog/woof.json');
+    if(!{body}) return message.channel.send("Bir hata oluştu. Tekrar deneyiniz.")
 
-    message.channel.send(dogembed);
-  message.react('617413726768988160')
+    const embed = new Discord.MessageEmbed()
+    .setColor('GREEN')
+    .setDescription("**"+message.author.username+"**, İşte bir kedi !")
+    .setImage(body.file)
+    .setTimestamp()
+    message.channel.send({embed})
+
+
+    msg.delete();
 };
 
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['köpek'],
+  aliases: [],
     kategori: 'eğlence',
   permLevel: 0
 };
 
 exports.help = {
-  name: 'köpek',
-  description: 'Rastgele Köpek Fotoğrafları Gösterir.',
-  usage: 'köpek'
+    name: "kedi",
+    description: "Bir kedi resmi gönderir.",
+    usage: "<prefix>kedi"
 };
