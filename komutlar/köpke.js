@@ -6,12 +6,12 @@ exports.run = async(client, message, args) => {
     let msg = await message.channel.send("Resim aranıyor...");
 
     let {body} = await superagent 
-    .get('https://random.dog/woof.json');
+    .get('https://dog.ceo/api/breeds/image/random');
     if(!{body}) return message.channel.send("Bir hata oluştu. Tekrar deneyiniz.")
 
     const embed = new Discord.MessageEmbed()
     .setColor('GREEN')
-    .setDescription("**"+message.author.username+"**, İşte bir kedi !")
+    .setDescription("**"+message.author.username+"**, İşte bir köpek !")
     .setImage(body.file)
     .setTimestamp()
     message.channel.send({embed})
