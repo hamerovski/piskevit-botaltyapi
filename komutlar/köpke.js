@@ -4,7 +4,7 @@ const superagent = require('superagent');
 exports.run = async (client, message, args) => {
 
     let {body} = await superagent
-    .get(`https://dog.ceo/api/breeds/image/random`)
+    .get(`https://random.dog/woof.json`)
 
     let dogembed = new Discord.MessageEmbed()
     .setColor("GREEN")
@@ -18,7 +18,7 @@ exports.run = async (client, message, args) => {
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['köpek', 'köpke'],
+  aliases: ['köpek'],
     kategori: 'eğlence',
   permLevel: 0
 };
