@@ -23,13 +23,13 @@ exports.run = async(client, message, args) => {
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: [],
+  aliases: ['köpek', 'köpke'],
     kategori: 'eğlence',
   permLevel: 0
 };
 
 exports.help = {
-    name: "kedi",
-    description: "Bir kedi resmi gönderir.",
-    usage: "<prefix>kedi"
+    name: "köpek",
+    description: "Bir köpek resmi gönderir.",
+    usage: "<prefix>köpek"
 };
