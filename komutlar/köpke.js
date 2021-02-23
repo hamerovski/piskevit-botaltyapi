@@ -6,7 +6,7 @@ exports.run = async(client, message, args) => {
     let msg = await message.channel.send("Resim aranıyor...");
 
     let {body} = await superagent 
-    .get('https://dog.ceo/api/breeds/image/random');
+    .get('https://random.dog/woof.json');
     if(!{body}) return message.channel.send("Bir hata oluştu. Tekrar deneyiniz.")
 
     const embed = new Discord.MessageEmbed()
