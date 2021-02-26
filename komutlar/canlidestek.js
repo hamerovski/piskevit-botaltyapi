@@ -13,7 +13,7 @@ const emoji7 = message.client.emojis.cache.get('📞');
       message.reply("Canlı Destek Komutunu Kullandığınız İçin Teşekkürler. Birazdan Yetkili Ekibimiz sizinle ilgilenicektir.");
       let mesaj = args.slice(0).join(' ');
       let chan = message.channel;
-      let destekKanal = "778258712111480862";
+      let destekKanal = "802110831856844811";
       const embed = new Discord.MessageEmbed()
         .addField('Uyarı', `📞 Canlı Destek Çağrısı`)
         .setAuthor(`${message.author.tag} (${message.author.id})`, `${message.author.avatarURL()}`)
