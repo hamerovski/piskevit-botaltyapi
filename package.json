@@ -21,6 +21,7 @@
     "ytdl-core": "^4.5.0",
     "quick.db": "^7.1.2",
     "snekfetch": "^4.0.4",
+    "steam-provider": "^0.3.2",
     "ffmpeg": "^0.0.4",
     "fs": "^0.0.2",
     "ms": "^2.1.3",
