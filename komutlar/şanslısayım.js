@@ -41,7 +41,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: "şanslı-sayım",
+  name: "şanslısayım",
   description: "Şanslı Sayınızı Bulmaya Çalışır",
   usage: "pythommn"
 };
