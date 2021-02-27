@@ -14,16 +14,6 @@ const path = require('path');
 const snekfetch = require('snekfetch');
 
 
-
-app.get("/", (request, response) => {
-  console.log(Date.now() + "Bot Başarıyla Hostlandı!");
-  response.sendStatus(200);
-});
-app.listen(process.env.PORT);
-setInterval(() => {
-  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
-}, 280000);
-
 var prefix = ayarlar.prefix;
 
 const log = message => {
