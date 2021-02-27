@@ -1,39 +1,50 @@
 const Discord = require('discord.js');
-const ayarlar = require('../ayarlar.json');
-const moment = require(\"moment\")
-var prefix = ayarlar.prefix;
-exports.run = async(client, message, args) => {
-  const superagent = require('superagent')
-  if(!args[0]) return message.channel.send(`❌ Bir şehir girmelisinki Bende Göstereyim.`)
-  let {body} = await superagent 
-  .get(`https://namazapi.glitch.me/namaz?sehir=${args[0]}`);
-  if(!{body}) return message.channel.send(`404! Bir Hata Oluştu! Lütfen Biraz Sonra Tekrar Dene!`)
-  if(body.hata) return message.channel.send(`Lütfen Geçerli Bir Şehir Gir!`)
-  let saat = moment().utc().add(3, \"hour\").format(\"HH:mm\") 
-                                const embed = new Discord.RichEmbed()
-  .setColor('ff000')
-  .setAuthor(`${args[0]} Namaz Vakitleri`, message.author.avatarURL)
-  .setThumbnail(\"https://cdn.discordapp.com/attachments/703327606883483789/703356887768367124/thumbs_b_c_c54dc19678389482e4f526e877b4b8cd.jpg\")
-                 .addField(\"**Tarih:**\",`\\`${body.tarih} ${saat}\\``)
-                            .addField(`${args[0]} **İmsak Ezan vakti:**`, `\\`${body.İmsak}\\``, true)
-                            .addField(`${args[0]} **Sabah Ezan vakti:**`, `\\`${body.Güneş}\\``, true)
-                            .addField(`${args[0]} **Öğle Ezan vakti:**`, `\\`${body.Öğle}\\``, true)
-                            .addField(`${args[0]} **İkindi Ezan vakti:**`, `\\`${body.İkindi}\\``, true)
-                            .addField(`${args[0]} **Akşam Ezan vakti:**`, `\\`${body.Akşam}\\``, true)
-                            .addField(`${args[0]} **Yatsı Ezan vakti:**`, `\\`${body.Yatsı}\\``, true)
-                            .setFooter(`API: https://namazapi.glitch.me/`, message.author.avatarURL)
-                            .setTimestamp()
-                            message.channel.send(embed)
-                           
-                           };
-                           
-                           exports.conf = {
-                enabled: true,
-                guildOnly: false,
-                aliases: ['iftar-vakti'],
-                permLevel: 0
-                };
-                
-                exports.help = {
-                name: 'namazvakti'
-                };
+
+exports.run = (client, message, args) => {
+  
+  let user = message.mentions.users.first();
+  if (!user) return message.reply('Bir kişiyi etiketlemelisin!');
+  
+  if (user.bot === true) return message.reply('Bir insanı etiketle bot değil!');
+  
+  let mesaj = args.slice(1).join(' ');
+  if (!mesaj) return message.reply('Yazılmasını istediğin yazıyı yazmalısın!');
+  if (mesaj.includes("@everyone")) return message.reply('Yo yo yo `@everyone` etiketi attıramazsın!');
+  if (mesaj.includes("@here")) return message.reply('Yo yo yo `@here` etiketi attıramazsın!');
+  
+  let x = /(m a l|ma l|m al|amk|sg|oç|sik|amına|amın|orospu|orospo|çocuğu|orosbu|orosbo|cocugu|mal|salak|kapçuk|amcık|amcuk|sikik|amk malı|amına kodum|amınakoduğum|amına koduğum)/
+  if (mesaj.match(x)) return message.reply('Yo yo yo attıracağın mesaj küfür barındıramaz!');
+  
+  message.delete();
+  
+  try {
+  
+  message.channel.createWebhook(user.username, user.avatarURL()) //make the webhook with the authors name and avatar
+    .then(wb => {
+        const w = new Discord.WebhookClient(wb.id, wb.token) //get the webhook
+        w.send(mesaj); //send the msg
+        w.delete() //delete the webhook
+    })
+    
+  } catch (err) {
+  
+    message.channel.send(`**Hata:** \n\`\`\`js\n${err}\n\`\`\``);
+    
+  };
+  
+};
+
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: ['say', 'webhook', 'yaz'],
+  permLevel: 0,
+    kategori: "eğlence",
+  //aktifmi: false
+};
+
+exports.help = {
+  name: 'yazdır',
+  description: 'İstediğiniz yazıyı bota webhook ile etiketlenen kullanıcının ağzından yazdırır.',
+  usage: 'yazdır <@kullanıcı> <yazı>'
+};
