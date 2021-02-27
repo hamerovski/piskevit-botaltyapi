@@ -12,8 +12,18 @@ const express = require('express');
 require('./util/eventLoader.js')(client);
 const path = require('path');
 const snekfetch = require('snekfetch');
-
+const i18n = require("i18n");
 const app = express();
+client.queue = new Map();
+const cooldowns = new Collection();
+const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+
+
+
+
+
+
 app.get("/", (request, response) => {
   console.log(Date.now() + "Bot Başarıyla Hostlandı!");
   response.sendStatus(200);
