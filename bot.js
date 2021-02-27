@@ -12,20 +12,6 @@ const express = require('express');
 require('./util/eventLoader.js')(client);
 const path = require('path');
 const snekfetch = require('snekfetch');
-const i18n = require("i18n");
-const app = express();
-client.queue = new Map();
-const cooldowns = new Collection();
-const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-
-i18n.configure({
-  locales: ["tr"],
-  directory: path.join(__dirname, "locales"),
-  defaultLocale: "tr",
-  objectNotation: true,
-  register: global,
-
-
 
 
 
