@@ -18,7 +18,12 @@ client.queue = new Map();
 const cooldowns = new Collection();
 const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
-
+i18n.configure({
+  locales: ["tr"],
+  directory: path.join(__dirname, "locales"),
+  defaultLocale: "tr",
+  objectNotation: true,
+  register: global,
 
 
 
