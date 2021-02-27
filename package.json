@@ -18,6 +18,7 @@
     "opusscript": "^0.0.7",
     "parse-ms": "^2.1.0",
     "simple-youtube-api": "^5.2.1",
+    "i18n": "^0.13.2",
     "ytdl-core": "^4.5.0",
     "quick.db": "^7.1.2",
     "snekfetch": "^4.0.4",
