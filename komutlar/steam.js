@@ -23,7 +23,7 @@ exports.run = (client, message, args) => {
     .addField('Geliştiricileri', results.otherData.developer, true)
     .addField('Yayımcıları', results.otherData.publisher)
     .setColor('RANDOM')
-    .setFooter('Chiasa-Bot | Steam Market')
+    .setFooter('Piskevit-Bot | Steam Market')
     message.channel.send(embed).catch(e => {
         console.log(e)
         message.reply('Hata Olustu Yada `' + game + '` Adlı Oyun Bulunamadı')
