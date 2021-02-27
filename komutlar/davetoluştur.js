@@ -4,7 +4,7 @@ exports.run = (client, message, args) => {
   
   if (!message.member.hasPermission("CREATE_INSTANT_INVITE")) return;
   message.channel.createInvite({maxAge: 0}).then(invite => {
-    let embed = new Discord.RichEmbed()
+    let embed = new Discord.MessageEmbed()
     .setColor('RANDOM')
     .setDescription(`**Bu Sunucunun Davet Linki**: ${invite}`);
     message.channel.send(embed);
