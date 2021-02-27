@@ -1,41 +1,44 @@
+const Discord = require('discord.js')
 const db = require('quick.db');
-
-exports.run = (client, message, args, func) => {
+const ayarlar = require('../ayarlar.json')
+exports.run = async (client, message, args) => {
+let a = ayarlar.prefix
+    let p = await db.fetch(`prefix.${message.guild.id}`) || ayarlar.prefix
+ let o = await db.fetch(`prefix.${message.guild.id}`)
+  if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(new Discord.MessageEmbed()
+.setDescription(`<a:hypesquad1:750076071721828452> **Bu Komutu Kullanabilmek İçin Mesajları Yönet Yetkisine Sahip Olmalısınız** | **Şuanki Prefix:** ${p}`));
   
-  if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
-  
-  let preffix = db.fetch(`prefix_${message.guild.id}`)
-  
+if(args[0] === "ayarla") {
+if(o) { return message.channel.send(new Discord. MessageEmbed()
+                                         .setColor("#ffd100")
+.setDescription(`**Ayarlanmış Şeyi Tekrar Ayarlıyamassın | Şuanki Prefix:** ${p} **Sıfırlamak İçin** ${p}**prefix sıfırla**`));
+      }
+if(!args[1]) return message.channel.send(new Discord.MessageEmbed()
+                                              .setColor("#ffd100")
+.setDescription(`<a:hypesquad1:750076071721828452>  **Bir Prefix Girip Tekrar Dene |  Şuanki Prefix:** ${p}`));
+db.set(`prefix.${message.guild.id}`, args[1])
+message.channel.send(new Discord.MessageEmbed()
+                          .setColor("#ffd100")
+.setDescription(`<a:hypesquad1:750076071721828452>  **Prefix Başarıyla Ayarlandı | Şuanki Prefix:** ${args[1]}`));
+}
     if(args[0] === "sıfırla") {
-    if(!preffix) {
-      message.channel.send(`Ayarlanmayan şeyi sıfırlayamazsın.`)
-      return
+    if(!o) {
+       return message.channel.send(new Discord.MessageEmbed()
+                                        .setColor("#ffd100")
+.setDescription(`<a:hypesquad1:750076071721828452> **Ayarlanmayan Prefixi Sıfırlayamazsınız | Şuanki Prefix:** ${p}`));
     }
-    
-    db.delete(`prefix_${message.guild.id}`)
-    message.channel.send(`Başarılı. Mevcut prefix \`/\``)
-            message.react('617413726768988160')
-    return
+    db.delete(`prefix.${message.guild.id}`)       
+   return message.channel.send(new Discord.MessageEmbed()
+                                    .setColor("#ffd100")
+.setDescription(`<a:hypesquad1:750076071721828452> **Prefix Başarıyla Sıfırlandı | Şuanki Prefix:** ${a}`));
   }
-  
-  if (!args[0])
-    return message.channel.send(`Bir prefix girmelisin.`)
-  db.set(`prefix_${message.guild.id}`, args[0])
-    message.channel.send(`Prefix başarıyla \`${args[0]}\` olarak ayarlandı.`)
-        message.react('617413726768988160')
+ 
+ if(!args[0]) return message.channel.send(new Discord.MessageEmbed()     
+                  .setColor("#ffd100")                             
+.setDescription(`<a:hypesquad1:750076071721828452> **Prefix Ayarlamak İçin** ${p}**prefix ayarla <prefix>**\n <a:hypesquad1:750076071721828452> **Sıfırlamak İçin** ${p}**prefix sıfırla | Şuanki Prefix:** \`${p}\``));
   
 };
-
-exports.conf = {
-    enabled: true,
-    guildOnly: true,
-    aliases: ['prefix-ayarla'],
-    kategori: 'ayarlar',
-    permLevel: 3
-};
-  
-  exports.help = {
-    name: 'prefix',
-    description: 'Bota eklenmesini istediğiniz şeyi tavsiye etmenizi sağlar',
-    usage: 'prefix <prefix>'
+exports.config = {
+name: "prefix",
+aliases: ['p']
 };
