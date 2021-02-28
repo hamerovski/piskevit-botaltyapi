@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 exports.run = function (client, message, args) {
   
     let assen = message.mentions.users.first();
-    if (message.mentions.users.cache.size < 1) return message.reply('Kullanıcı Belirt')
+    if (message.mentions.users.cache < 1) return message.reply('Kullanıcı Belirt')
     let charons = args.slice(1).join(' ')
     if (!charons) return message.reply('Mesaj Yaz')
     message.delete()
