@@ -3,12 +3,12 @@ const Discord = require('discord.js');
 exports.run = function (client, message, args) {
   
     let assen = message.mentions.users.first();
-    if (message.mentions.users < 1) return message.reply('Kullanıcı Belirt')
+    if (message.mentions.users.size < 1) return message.reply('Kullanıcı Belirt')
     let charons = args.slice(1).join(' ')
     if (!charons) return message.reply('Mesaj Yaz')
     message.delete()
-    message.channel.createWebhook(assen.username, assen.avatarURL())
-    .then(webhook => webhook.edit(assen.username, assen.avatarURL())
+    message.channel.createWebhook(assen.username, assen.avatarURL)
+    .then(webhook => webhook.edit(assen.username, assen.avatarURL)
         .then(wb => {
             const hook = new Discord.WebhookClient(wb.id, wb.token);
             hook.send(charons)
