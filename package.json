@@ -30,6 +30,7 @@
     "weather-js": "^2.0.0",
     "@freezegold/anime.js": "^2.0.3",
     "qs": "^6.9.6",
+    "sozluk-api": "^1.0.2",
     "detective-cjs": "^3.1.1",
     "tcmb-doviz": "^1.0.6",
     "common-tags": "^1.8.0",
