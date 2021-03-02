@@ -1,37 +1,237 @@
-const Discord = require('discord.js');
-exports.run = function(client, message, args) {
-if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("Bu Komutu Kullanmak İçin İzniniz Yok!");
-if(!args[0]) return message.channel.send("🚫 **Lütfen Silinicek Mesaj Miktarını Yazın!** 🚫");
-message.channel.bulkDelete(args[0]).then(() => {
-  message.channel.send(` ${args[0]} Adet Mesajı Sildim. :put_litter_in_its_place:`).then(msg => msg.delete(5000));
-    const botunmesajyonet = new Discord.MessageEmbed()
-    let messagecount = parseInt(args.join(' '));
-  message.channel.messages.fetch({
-    limit: messagecount
-  }).then(messages => message.channel.bulkDelete(messages));
-    const sohbetsilindi = new Discord.MessageEmbed()
-    .setColor('RANDOM')
-    .setTimestamp()
-    .addField('🌍 Eylem:', 'Sohbet silme')
-    .addField('👨 Yetkili: ', message.author.username)
-    .addField('🔥 Sonuç: ', `Başarılı`)
-    .addField('📝 Kaç Adet', + messagecount)
-    return message.channel.send(sohbetsilindi).then(msg => msg.delete(5000));
-    console.log("**Sohbet " + message.member + " tarafından silindi! **").then(msg => msg.delete(5000));
+const { MessageEmbed } = require("discord.js");
+exports.run = (Bot, Mesaj, Argüman) => {
+  const Sayı = Number(Argüman[0]);
 
-})
-}
+  const Hata = new MessageEmbed()
+    .setColor("#7f0000")
+    .setTitle("Hata!")
+    .setFooter(`${Mesaj.author.username} Tarafından İstendi.`,Mesaj.author.avatarURL);
 
+  const Başarılı = new MessageEmbed()
+    .setColor("#007f00")
+    .setTitle("Başarılı!")
+    .setFooter(`${Mesaj.author.username} Tarafından İstendi.`,Mesaj.author.avatarURL);
+  {
+    if (!Mesaj.member.hasPermission("MANAGE_MESSAGES")) {
+      Hata.setDescription("Bu komutu kullanmak için `Mesajları Yönet` yetkisine sahip olmanız gerekmektedir.");
+      Mesaj.channel.send(Hata).then(msg => msg.delete(5000));
+      
+    } else {
+      if (!Sayı) {
+        Hata.setDescription("Bir sayı belirtiniz.");
+        Mesaj.channel.send(Hata).then(msg => msg.delete(5000));
+      } else {
+        if (Sayı < 101) {
+          Başarılı.setDescription(`${Sayı} adet mesaj başarıyla silindi! ✅`);
+          Mesaj.channel.send(Başarılı).then(msg => msg.delete(5000));
+          Mesaj.channel.bulkDelete(Sayı);
+        }
+        if (Sayı > 100 && Sayı < 200) {
+          Başarılı.setDescription(`${Sayı} adet mesaj başarıyla silindi! ✅`);
+          Mesaj.channel.send(Başarılı).then(msg => msg.delete(5000));
+          Mesaj.channel.bulkDelete(100).then(() => {
+            Mesaj.channel.bulkDelete(Sayı - 100);
+          });
+        }
+        if (Sayı == 200) {
+          Başarılı.setDescription(`${Sayı} adet mesaj başarıyla silindi! ✅`);
+          Mesaj.channel.send(Başarılı).then(msg => msg.delete(5000));
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+        }
+        if (Sayı > 200 && Sayı < 300) {
+          Başarılı.setDescription(`${Sayı} adet mesaj başarıyla silindi! ✅`);
+          Mesaj.channel.send(Başarılı).then(msg => msg.delete(5000));
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100).then(() => {
+            Mesaj.channel.bulkDelete(Sayı - 200);
+          });
+        }
+        if (Sayı == 300) {
+          Başarılı.setDescription(`${Sayı} adet mesaj başarıyla silindi! ✅`);
+          Mesaj.channel.send(Başarılı).then(msg => msg.delete(5000));
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+        }
+        if (Sayı > 300 && Sayı < 400) {
+          Başarılı.setDescription(`${Sayı} adet mesaj başarıyla silindi! ✅`);
+          Mesaj.channel.send(Başarılı).then(msg => msg.delete(6000));
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100).then(() => {
+            Mesaj.channel.bulkDelete(Sayı - 300);
+          });
+        }
+        if (Sayı == 400) {
+          Başarılı.setDescription(`${Sayı} adet mesaj başarıyla silindi! ✅`);
+          Mesaj.channel.send(Başarılı).then(msg => msg.delete(7000));
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+        }
+        if (Sayı > 400 && Sayı < 500) {
+          Başarılı.setDescription(`${Sayı} adet mesaj başarıyla silindi! ✅`);
+          Mesaj.channel.send(Başarılı).then(msg => msg.delete(7000));
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100).then(() => {
+            Mesaj.channel.bulkDelete(Sayı - 400);
+          });
+        }
+        if (Sayı == 500) {
+          Başarılı.setDescription(`${Sayı} adet mesaj başarıyla silindi! ✅`);
+          Mesaj.channel.send(Başarılı).then(msg => msg.delete(8000));
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+        }
+        if (Sayı > 500 && Sayı < 600) {
+          Başarılı.setDescription(`${Sayı} adet mesaj başarıyla silindi! ✅`);
+          Mesaj.channel.send(Başarılı).then(msg => msg.delete(8000));
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100).then(() => {
+            Mesaj.channel.bulkDelete(Sayı - 500);
+          });
+        }
+        if (Sayı == 600) {
+          Başarılı.setDescription(`${Sayı} adet mesaj başarıyla silindi! ✅`);
+          Mesaj.channel.send(Başarılı).then(msg => msg.delete(10000));
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+        }
+        if (Sayı > 600 && Sayı < 700) {
+          Başarılı.setDescription(`${Sayı} adet mesaj başarıyla silindi! ✅`);
+          Mesaj.channel.send(Başarılı).then(msg => msg.delete(10000));
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100).then(() => {
+            Mesaj.channel.bulkDelete(Sayı - 600);
+          });
+        }
+        if (Sayı == 700) {
+          Başarılı.setDescription(`${Sayı} adet mesaj başarıyla silindi! ✅`);
+          Mesaj.channel.send(Başarılı).then(msg => msg.delete(12000));
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+        }
+        if (Sayı > 700 && Sayı < 800) {
+          Başarılı.setDescription(`${Sayı} adet mesaj başarıyla silindi! ✅`);
+          Mesaj.channel.send(Başarılı).then(msg => msg.delete(10000));
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100).then(() => {
+            Mesaj.channel.bulkDelete(Sayı - 700);
+          });
+        }
+        if (Sayı == 800) {
+          Başarılı.setDescription(`${Sayı} adet mesaj başarıyla silindi! ✅`);
+          Mesaj.channel.send(Başarılı).then(msg => msg.delete(12000));
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+        }
+        if (Sayı > 800 && Sayı < 900) {
+          Başarılı.setDescription(`${Sayı} adet mesaj başarıyla silindi! ✅`);
+          Mesaj.channel.send(Başarılı).then(msg => msg.delete(11000));
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100).then(() => {
+            Mesaj.channel.bulkDelete(Sayı - 800);
+          });
+        }
+        if (Sayı == 900) {
+          Başarılı.setDescription(`${Sayı} adet mesaj başarıyla silindi! ✅`);
+          Mesaj.channel.send(Başarılı).then(msg => msg.delete(12000));
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+        }
+        if (Sayı > 900 && Sayı < 1000) {
+          Başarılı.setDescription(`${Sayı} adet mesaj başarıyla silindi! ✅`);
+          Mesaj.channel.send(Başarılı).then(msg => msg.delete(12000));
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100).then(() => {
+            Mesaj.channel.bulkDelete(Sayı - 900);
+          });
+        }
+
+        if (Sayı == 1000) {
+          Başarılı.setDescription(`${Sayı} adet mesaj başarıyla silindi! ✅`);
+          Mesaj.channel.send(Başarılı).then(msg => msg.delete(13000));
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+          Mesaj.channel.bulkDelete(100);
+        }
+        if (Sayı > 1000) {
+          Hata.setDescription("En fazla 1000 adet mesaj silebilirsiniz.");
+          Mesaj.channel.send(Hata).then(msg => msg.delete(5000));
+        }
+      }
+    }
+  }
+};
 
 exports.conf = {
   enabled: true,
-  guildOnly: true,
-  aliases: ['sil'],
-  permLevel: 2
+  guildOnly: false,
+  aliases: ["Temizle", "sil", "temizle"],
+  permLevel: 0
 };
 
 exports.help = {
-  name: 'sil',
-  description: 'Belirlenen miktarda mesajı siler.',
-  usage: 'sil <silinicek mesaj sayısı>'
+  name: "Sil"
 };
