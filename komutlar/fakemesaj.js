@@ -1,32 +1,41 @@
-const Discord = require('discord.js');
+const Discord = require("discord.js");
+exports.run = async (client, message, args, db, ayarlar) =&gt; {
+  try {
+    let kişi = message.mentions.users.first();
+    const hataembed = new Discord.MessageEmbed()
+      .setColor("RED")
+      .setTimestamp()
+      .addField("HATA:", "Lütfen Birisini Etiketle ve Bir Yazı Yaz!");
+    if (message.mentions.users.size &lt; 1) return message.reply(hataembed);
+    let yazi = args.slice(1).join(" ");
+    if (!yazi) return message.reply(hataembed);
+    message.delete();
 
-exports.run = function (client, message, args) {
-  
-    let assen = message.mentions.users.first();
-    if (message.mentions.users.size < 1) return message.reply('Kullanıcı Belirt')
-    let charons = args.slice(1).join(' ')
-    if (!charons) return message.reply('Mesaj Yaz')
-    message.delete()
-    message.channel.createWebhook(assen.username, assen.avatarURL)
-    .then(webhook => webhook.edit(assen.username, assen.avatarURL)
-        .then(wb => {
-            const hook = new Discord.WebhookClient(wb.id, wb.token);
-            hook.send(charons)
-            hook.delete()
-        })
-        .catch(console.error))
-        .catch(console.error);
+    message.channel
+      .createWebhook(kişi.username, {
+        avatar: kişi.avatarURL()
+      })
+      .then(hook =&gt; {
+        hook.send(yazi);
+        setTimeout(function() {
+          hook.delete();
+        }, 3000);
+      })
+      .catch(console.error);
+  } catch (err) {
+    global.errs(err, message).catch(e =&gt; console.log(e.stack));
+  }
 };
 
 exports.conf = {
-    enabled: true,
-    guildOnly: false,
-    aliases: [],
-    permLevel: 0,
+  enabled: true,
+  guildOnly: false,
+  aliases: [],
+  permLevel: 0
 };
 
 exports.help = {
-    name: 'fakemesaj',
-    description: 'Fake Bot Mesajı Gönderir .',
-    usage: 'fakemesaj'
+  name: "fakemesaj",
+  description: "fakemesaj",
+  usage: "fakemesaj"
 };
