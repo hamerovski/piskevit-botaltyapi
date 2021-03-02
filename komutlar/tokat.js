@@ -14,8 +14,7 @@ const EmbedFwhyCode = new Discord.MessageEmbed()
 
     .setColor("0x808080")
     .setDescription(
-      message.author.username + ` ${user}` + "** adlı kişiyi, Tokatladı! 🖐️ **"
-    )
+    .message.author.username + ` ${user}` + "** adlı kişiyi, Tokatladı! 🖐️ **")
     .setImage("https://media0.giphy.com/media/deKWTyMOYLkje/giphy.gif")
     .setFooter("Pink Code Share #Pcs", client.user.avatarURL);
 
