@@ -1,37 +1,40 @@
-const Discord = require("discord.js");
+const config = require('../ayarlar.json');
+const Discord = require('discord.js');
+const db = require('quick.db');
+
+exports.run = async (client, message, args) => {  
  
-exports.run = function(client, message, args) {
-  var öneri = args.slice(0).join(" ");
-  var guildID = "796847477080850462"; // Sunucu ID
-  var channelID = "812853158824378388"; // Kanal ID
-  if (!öneri) {
-    return message.reply(
-      "Bir mesaj belirtin! Doğru kullanım: **-öneri <mesaj>**"
-    );
-  } else {
-    var embed = new Discord.RichEmbed()
- 
-      .setTimestamp()
-      .setColor("RANDOM")
-      .addField("Eylem:", "Öneri")
-      .addField("Kullanıcı:", message.author.tag)
-      .addField("ID", message.author.id)
-      .addField("Öneri", öneri);
-    client.guilds
-      .get(guildID)
-      .channels.get(channelID)
-      .send(embed);
-    message.channel.send("Öneriniz alınmıştır! Teşekkür ederiz...");
-  }
-} 
-exports.conf = {
-  enabled: true,
-  guildOnly: false, 
-  aliases: ["istek"], 
-  permLevel: 0
+let prefix = db.fetch(`prefix_${message.guild.id}`) || config.prefix
+let yazı = args.slice(0).join(' ');
+  
+const embed = new Discord.MessageEmbed()
+.setColor("RED")
+.setTitle("Hata!")
+.setDescription(`Doğru Kullanım: ${prefix}öneri [Öneriniz].`);
+if (!yazı) return message.channel.send(embed)
+
+const embed2 = new Discord.MessageEmbed()
+.setColor("GREEN")
+.setTitle("Başarılı")
+.setDescription('Öneriniz Başarıyla Bildirildi. Teşekkürler!')
+message.channel.send(embed2)
+
+const embed3 = new Discord.MessageEmbed()
+.setColor("RED")
+.setTitle("Bir Öneri Var!")
+.addField(`ÖNeriyi Gönderen`, message.author.tag)
+.addField(`ÖNeriyi Gönderenin ID'si`, message.author.id)
+.addField(`Öneri`, yazı)
+.setThumbnail(message.author.avatarURL())
+client.channels.cache.get("802110831856844811").send(embed3);
 };
+
+exports.conf = {
+enabled: true,
+guildOnly: true, 
+aliases: []
+};
+
 exports.help = {
-  name: "öneri",
- description: "Bot hakkındaki önerilerinizi bot sahibine ulaştırır.",
- usage: "öneri <mesaj>"
+name: 'öneri'
 };
