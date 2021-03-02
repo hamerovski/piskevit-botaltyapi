@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-exports.run = async (client, message, args, db, ayarlar) =&gt; {
+exports.run = async (client, message, args, db, ayarlar) => {
   try {
     let kişi = message.mentions.users.first();
     const hataembed = new Discord.MessageEmbed()
