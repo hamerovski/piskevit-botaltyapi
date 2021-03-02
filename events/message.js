@@ -80,6 +80,13 @@ module.exports = message => {
 		}
     if (perms < cmd.conf.permLevel) return;
     cmd.run(client, message, params, perms);
+    if (!client.commands.has(command)) {
+    if (client.aliases.has(command)) {
+      cmd = client.commands.get(client.aliases.get(command));
+    } else {
+      if(command == '') return;
+    message.reply("Sunucuda`" + command + '` adında bir komut bulunamadı')
+  }
   }
 
 };
