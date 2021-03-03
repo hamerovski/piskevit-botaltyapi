@@ -361,39 +361,9 @@ client.on("message", msg => {
 });
 ///--------BOTA DM ATANLAR SONU-------------////
 
-client.on('guildDelete', guild => {
 
-let plasmic = new Discord.MessageEmbed()
-
-.setColor("RANDOM")
-.setTitle(" Bot Kicklendi ")
-.addField("Sunucu Adı:", guild.name)
-.addField("Sunucu sahibi", guild.owner)
-.addField("Sunucu Sahibi'nin ID'si", guild.ownerID)
-.addField("Sunucunun Kurulu Olduğu Bölge:", guild.region)
-.addField("Sunucudaki Kişi Sayısı:", guild.memberCount)
-
-   client.channels.cache.get('785431902848679956').send(plasmic);
- 
-});
 
 //--------------------------------------------------------//
-
-client.on('guildCreate', guild => {
-
-let plasmicc = new Discord.MessageEmbed()
-
-.setColor("RANDOM")
-.setTitle(" Bot Eklendi ")
-.addField("Sunucu Adı:", guild.name)
-.addField("Sunucu sahibi", guild.owner)
-.addField("Sunucu Sahibi'nin ID'si", guild.ownerID)
-.addField("Sunucunun Kurulu Olduğu Bölge:", guild.region)
-.addField("Sunucudaki Kişi Sayısı:", guild.memberCount)
-
-   client.channels.cache.get('797114065582555136').send(plasmicc);
-
-});
 
 
 client.on('ready', ()=>{
