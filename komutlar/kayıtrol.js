@@ -15,7 +15,7 @@ exports.run = async (client, message, args) => {
     }
     
     
-    db.delete(`kayıt_${message.guild.id}`)
+    db.delete(`kayıt_${message.guild.id}`)  //--------deneme
                const ok = new Discord.MessageEmbed()
     .setColor(0x00AE86)
     .setTimestamp()
