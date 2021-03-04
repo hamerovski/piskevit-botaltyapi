@@ -7,7 +7,7 @@ const snekfetch = require("snekfetch");
 exports.run = async (client, msg, args) => {
   msg.delete();
   const yasak = client.emojis.cache.get('811958245094326372');
-  if (msg.channel.id !== '807300432543744010') return msg.channel.send(`${yasak} **Bu komutun kullanımı, bu kanalda engellenmiştir.**`).then(m => m.delete(5000));
+  if (msg.channel.id !== '802110831856844811') return msg.channel.send(`${yasak} **Bu komutun kullanımı, bu kanalda engellenmiştir.**`).then(m => m.delete(5000));
   let u = msg.mentions.users.first() || msg.author;
 
         if(u.bot === true) {
