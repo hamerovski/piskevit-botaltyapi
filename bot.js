@@ -207,31 +207,6 @@ const countdown = (param) => {
 //---------------------------------------------------------------
 
 
-client.on("guildCreate", async function(guild) {
-const owner = client.users.cache.get(guild.ownerID)
-const kanal = "797114065582555136" //Eklendim mesajının atılacağı kanal ID'sini giriniz.
-const ottoman = new Discord.MessageEmbed()
-.setTitle(`Yeni bir sunucuya eklendim`)
-.setColor("BLACK")
-.addField(`Sunucu Adı`, guild.name)
-.addField(`Sunucu Sahibi`, owner.username + "#" +owner.discriminator)
-.addField(`Sunucu Üye Sayısı`, guild.memberCount)
-client.channels.cache.get(kanal).send({embed: ottoman}).catch(err => console.log("Kanala mesaj atamıyorum!"))
-})
-//
-  
-//Atıldım
-client.on("guildDelete", async function(guild) {
-const owner = client.users.cache.get(guild.ownerID)
-const kanal = "797114065582555136" //Atıldım mesajının atılacağı kanal ID'sini giriniz.
-const ottoman = new Discord.MessageEmbed()
-.setTitle(`Bir sunucudan atıldım`)
-.setColor("BLACK")
-.addField(`Sunucu Adı`, guild.name)
-.addField(`Sunucu Sahibi`, owner.username + "#" + owner.discriminator)
-.addField(`Sunucu Üye Sayısı`, guild.memberCount)
-client.channels.cache.get(kanal).send({embed: ottoman}).catch(err => console.log("Kanala mesaj atamıyorum!"))
-})
 
 
 
