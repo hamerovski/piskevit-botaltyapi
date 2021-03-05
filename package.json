@@ -12,6 +12,7 @@
     "discord.js": "^12.5.1",
     "chalk": "^4.1.0",
     "moment": "^2.29.1",
+    "croxy-api": "^2.0.6",
     "jimp": "^0.16.1",
     "discordjs-ytdl": "^2.2.0",
     "ffmpeg-static": "^4.2.7",
