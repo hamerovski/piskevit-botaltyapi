@@ -18,6 +18,28 @@ const snekfetch = require('snekfetch');
 
 var prefix = ayarlar.prefix;
 
+
+
+//////////sunucuya biri gelince kayıt mesajı atar.
+
+client.on("guildMemberAdd",a=>{
+let yetkili = ("808773699280961547") //kayıt görevlisi rol id
+let kayıtsız1 = ("797113970812387328")//kayıtsız rol id
+let kullanıcı = client.users.cache.get(a.id)
+let kayıt;
+const kurulus = new Date().getTime()- kullanıcı.createdAt.getTime();
+if (kurulus < 1296000000) kayıt = 'HAYIR Değil'
+if (kurulus > 1296000000) kayıt = 'Evet Güvenilir!'
+const kayıtembed = new Discord.MessageEmbed()
+.setTitle("Yeni Kullanıcı Geldi!")
+.setColor("RANDOM")
+.setDescription(`${a} Hoşgeldin Seninle Birlikte **${a.guild.memberCount}** Kişi Olduk Yetkili Ekibimiz Sizinle İlgilenecek İlgilenmezlerse Kayıtcıların Rolünü etiketle`)
+.addField("Kayıt Görevlisi Rolü",`<@&${yetkili}>`)
+.addField("Bu Kişi Güvenilirmi",`**${kayıt}**`)
+.setImage("https://cdn.discordapp.com/attachments/740669534637129810/740674885189107823/LEGEND_20171010_224358.gif")
+a.roles.add(kayıtsız1)
+client.channels.cache.get("815217069263945738").send(kayıtembed)})
+
 const log = message => {
     console.log(`${message}`);
 };
@@ -101,25 +123,6 @@ newState.setSelfDeaf(true);
 
 //---------------------------------------------------------------------------------------------------------------------------------------\\
 
-//////////sunucuya biri gelince kayıt mesajı atar.
-
-client.on("guildMemberAdd",a=>{
-let yetkili = ("808773699280961547") //kayıt görevlisi rol id
-let kayıtsız1 = ("797113970812387328")//kayıtsız rol id
-let kullanıcı = client.users.cache.get(a.id)
-let kayıt;
-const kurulus = new Date().getTime()- kullanıcı.createdAt.getTime();
-if (kurulus < 1296000000) kayıt = 'HAYIR Değil'
-if (kurulus > 1296000000) kayıt = 'Evet Güvenilir!'
-const kayıtembed = new Discord.MessageEmbed()
-.setTitle("Yeni Kullanıcı Geldi!")
-.setColor("RANDOM")
-.setDescription(`${a} Hoşgeldin Seninle Birlikte **${a.guild.memberCount}** Kişi Olduk Yetkili Ekibimiz Sizinle İlgilenecek İlgilenmezlerse Kayıtcıların Rolünü etiketle`)
-.addField("Kayıt Görevlisi Rolü",`<@&${yetkili}>`)
-.addField("Bu Kişi Güvenilirmi",`**${kayıt}**`)
-.setImage("https://cdn.discordapp.com/attachments/740669534637129810/740674885189107823/LEGEND_20171010_224358.gif")
-a.roles.add(kayıtsız1)
-client.channels.cache.get("815217069263945738").send(kayıtembed)})
 
 //---------------------------------------------------------------------------------------------------------------------------------------\\
 
