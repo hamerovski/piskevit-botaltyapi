@@ -1,4 +1,7 @@
-
+const Discord = require('discord.js');
+const ayarlar = require('../ayarlar.json');
+exports.run = (client, message, params) => {
+        
 var s = 0;
         var kisi = message.mentions.users.first();
         if(!kisi) return message.channel.send("Lütfen birini etiketleyin");
