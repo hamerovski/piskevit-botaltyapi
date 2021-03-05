@@ -82,6 +82,10 @@ client.on('message', msg => {   if (msg.author.bot) return;
  if (msg.content.toLowerCase().includes('günaydın'))msg.reply('🌞 Günaydın :)');   if (msg.content.toLowerCase().includes('iyi geceler')) msg.reply(' 🌙 Sana da iyi geceler');  if (msg.content.toLowerCase().includes('iyi akşamlar')) msg.reply('🌓 sana da iyi akşamlar'); 
 });
 
+client.on("message",message=>{
+    if(message.content==`<@!${client.user.id}>`) return message.channel.send(`Prefixim : **${prefix}**`);
+})
+
 //-------------Kendini Sağirlaştirma Komutu ---------------\\
 
 client.on('voiceStateUpdate', async (___, newState) => {
