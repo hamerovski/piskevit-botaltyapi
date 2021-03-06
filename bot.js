@@ -104,6 +104,56 @@ newState.setSelfDeaf(true);
 //---------------------------------------------------------------------------------------------------------------------------------------\\
 
 
+
+
+
+//-------------------- Afk Sistemi --------------------//
+//-------------------- Afk Sistemi --------------------//
+
+const ms = require("parse-ms");
+const { DiscordAPIError } = require("discord.js");
+
+client.on("message", async message => {
+  if (message.author.bot) return;
+  if (!message.guild) return;
+  if (message.content.includes(`afk`)) return;
+
+  if (await db.fetch(`afk_${message.author.id}`)) {
+    db.delete(`afk_${message.author.id}`);
+    db.delete(`afk_süre_${message.author.id}`);
+
+    const embed = new Discord.MessageEmbed()
+
+      .setColor("GREEN")
+      .setAuthor(message.author.username, message.author.avatarURL)
+      .setDescription(`Afk Modundan Başarıyla Çıkıldı.`);
+
+    message.channel.send(embed);
+  }
+
+  var USER = message.mentions.users.first();
+  if (!USER) return;
+  var REASON = await db.fetch(`afk_${USER.id}`);
+
+  if (REASON) {
+    let süre = await db.fetch(`afk_süre_${USER.id}`);
+    let timeObj = ms(Date.now() - süre);
+
+    const afk = new Discord.MessageEmbed()
+
+      .setColor("RED")//lrowsxrd
+      .setDescription(
+        `**BU KULLANICI AFK**\n\n**Afk Olan Kullanıcı :** \`${USER.tag}\`\n**Afk Süresi :** \`${timeObj.hours}saat\` \`${timeObj.minutes}dakika\` \`${timeObj.seconds}saniye\`\n**Sebep :** \`${REASON}\``
+      );
+
+    message.channel.send(afk);
+  }
+});
+
+//-------------------- Afk Sistemi --------------------//
+//-------------------- Afk Sistemi --------------------//
+
+
 //---------------------------------------------------------------------------------------------------------------------------------------\\
 
 client.on("message", async (message , bot) => {
