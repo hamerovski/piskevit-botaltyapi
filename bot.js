@@ -102,25 +102,8 @@ newState.setSelfDeaf(true);
 });
 
 //---------------------------------------------------------------------------------------------------------------------------------------\\
-//-------------------Hoşgeldin----------------------------------------------------------------
-client.on("guildMemberAdd", member => {  
-    const kanal = member.guild.channels.cache.find(r => r.id === "817304446505713674");
-    const elitakayıt = "<@&808773699280961547>"
-    let user = client.users.cache.get(member.id);
-    require("moment-duration-format");
-      const kurulus = new Date().getTime() - user.createdAt.getTime();  
-   
-    var kontrol;
-  if (kurulus < 1296000000) kontrol = 'Hesabın Güvenilir.!'
-  if (kurulus > 1296000000) kontrol = 'Hesabın Güvenilir Değil.!'
-    moment.locale("tr");
-      const elitacode = new Discord.MessageEmbed()
-      .setAuthor(member.guild.name)
-  .setDescription("**Hoşgeldin! <@" + member + "> Seninle Birlikte \`" + member.guild.memberCount + "\` Kişi Olduk .\n\n <@&808773699280961547> Rolündekiler Seninle İlgilenecektir. \n\nHesabını " + moment(member.user.createdAt).format("`YYYY DD MMMM dddd`") +  "\n\n"  + kontrol + " Tarihinde Oluşturmuşsun.**\n")
-   kanal.send(elitacode)   
-     kanal.send(elitakayıt) 
-  });
-//-------------------Hoşgeldin----------------------------------------------------------------
+
+
 //-------------------- Afk Sistemi --------------------//
 //-------------------- Afk Sistemi --------------------//
 client.on("message" , message => {
