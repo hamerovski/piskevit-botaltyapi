@@ -143,7 +143,7 @@ client.on("message" , message => {
       const cmfbilgiafk = new Discord.MessageEmbed()
       .setDescription(`${message.author} - Etiketlemiş Olduğun <@!${codemarefikisi2}> Kişisi Şuan **${cmfsebep}** Sebebiyle AFK`)
       .setColor("#36393F")
-      .setFooter('CodeMareFi - Discord Bot Kod Paylaşım')
+      .setFooter('kahve içiyo')
       message.channel.send(cmfbilgiafk)
     }
   }
@@ -164,7 +164,7 @@ client.on("message" , message => {
     .setAuthor(`Hoşgeldin ${message.author.username}`, message.author.avatarURL({dynamic: true, size: 2048}))
     .setDescription(`<@!${codemarefikisi}> Başarılı Bir Şekilde **AFK** Modundan Çıkış Yaptın.`)
     .setColor("#36393F")
-    .setFooter('CodeMareFi - Discord Bot Kod Paylaşım')
+    .setFooter('Seni özledim')
     message.channel.send(cmfbilgiafk)
   }  
 })
