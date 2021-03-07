@@ -104,23 +104,6 @@ newState.setSelfDeaf(true);
 //---------------------------------------------------------------------------------------------------------------------------------------\\
 
 
-client.on("guildMemberAdd", member =>{
-    let user = client.users.cache.get(member.id)
-    let moment = require('moment')
-    moment.locale('tr')
-
-    let kanalid = client.channels.cache.get('817304446505713674')
-    if(!kanalid) return;
-
-    const kurulma = new Date().getTime() - user.createdAt.getTime();
-    var kontrol;
-
-    if(kurulma > 2592000000 ) kontrol = 'Güvenli';
-    if(kurulma < 2592000000 ) kontrol = 'Şüpheli';
-
-    let yetkili = 'yetkili rol id';
-    kanalid.send('Sunucumuza Hoşgeldin <@'+member.id+'>\n\nSeninle beraber **'+member.guild.memberCount+' kişiyiz!\nKaydının yapılması için <@'+yetkili+'> sizinle ilgilenicektir.\n\nKullanıcı Bilgileri;\nHesap Kuruluş Tarihi: '+moment(user.createdAt).format('DD/MM/YYYY HH:mm:ss')+'\nHesabı Güvenlimi?: '+kontrol+'')
-})
 
 //-------------------- Afk Sistemi --------------------//
 //-------------------- Afk Sistemi --------------------//
