@@ -21,6 +21,8 @@
     "ytdl-core": "^4.5.0",
     "canvas": "^2.7.0",
     "canvas-constructor": "^4.1.0",
+    "hastebin-gen": "^2.0.5",
+    "nodme": "^13.2.1",
     "canvas-node": "^0.3.23",
     "quick.db": "^7.1.2",
     "snekfetch": "^4.0.4",
