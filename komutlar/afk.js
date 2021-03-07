@@ -46,7 +46,7 @@ const db = require('quick.db');
             const afk = new Discord.MessageEmbed()
             .setDescription(`${message.author} Başarılı şekilde **${sebep}** Sebeiyle 'AFK' moduna geçtiniz.`)
             .setColor('#00ff00')
-            .setFooter('CodeMareFi') //KadirFi |\_/|
+            .setFooter('Görüşürüzz') 
             message.channel.send(afk)
 
             // Afk Olunca İsim Değiştirsin 
