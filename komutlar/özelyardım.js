@@ -25,14 +25,15 @@ ${mp ? mp : "Yok"}
 message.channel.send(embed)
 }//yardım komutunu ellemenize gerek yok otomatik tüm komutları listeliyor.
 
-
-exports.help = {
-    name : "özelyardım",
-    aliases : ['özelhelp', 'özelodayardım'],
-    perm : 0,
-    botPerm : 0,
-}
-exports.play  = {
-    desc : "Tüm özeloda komutları gösterir.",
-    cmd : "özelyardım"
-}
+  exports.conf = {
+    enabled: true,
+    guildOnly: false,
+    aliases: ['özelhelp', 'özelodayardım'],
+    permLevel: 0
+   };
+ 
+  exports.help = {
+    name: 'özelyardım',
+    description: 'Tüm özeloda komutları gösterir.',
+    usage: 'özelyardım'
+   }
