@@ -5,7 +5,7 @@ exports.run =async (client,message,args)=>{
 
 let f = db.fetch(`odam_${message.author.id}`)
 let f2 = db.fetch(`özeloda_${message.guild.id}`)
-if(!f2) return message.reply('Bu Sunucuda Özel oda sistemi hiç bir kanala ayarlanmamış. **'+ `${client.prefix}yardım**`)
+if(!f2) return message.reply('Bu Sunucuda Özel oda sistemi hiç bir kanala ayarlanmamış. **'+ `${client.prefix}özelyardım**`)
 if(!f) return message.reply('Senin Bir odan Bulunmuyor, ``'+f2.map(a => a.channel.name).join(" - ")+'`` Ses Kanallarından Birine girip Açabilirsin.')
 let arh = args[0]
 if(isNaN(arh) || !arh) return message.reply(`Bir Sayı Girmelisin.`)
@@ -17,13 +17,15 @@ message.reply(`Odanızın Bithızı **${arh}kbps** Olarak ayarlandı.`)
 
 }
 
-
-exports.help = {
-    name : "bitrate",
-    aliases : ['bit-rate','bithızı'],
-    perm : 0
-}
-exports.play  = {
-    desc : "Odanızın bithızı'nı ayarlayabilirsiniz.",
-    cmd : "bitrate <96-8>"
-}
+  exports.conf = {
+    enabled: true,
+    guildOnly: false,
+    aliases: ['bit-rate','bithızı'],
+    permLevel: 0
+   };
+ 
+  exports.help = {
+    name: 'bitrate',
+    description: 'Odanızın bithızını ayarlayabilirsiniz.',
+    usage: 'bitrate <96-8>'
+   }
