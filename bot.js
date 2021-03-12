@@ -85,7 +85,7 @@ client.on('message', msg => {   if (msg.author.bot) return;
 });
 
 client.on("message",message=>{
-    if(message.content==`<@!${client.user.id}>`) return message.channel.send(`Prefixim : **${prefix}**`);
+    if(message.content==`<@!${client.user.id}>`) return message.channel.send(`<@!713713727794446397>`) return msg.channel.send(`<a:hypesquad1:750076071721828452> **Sanırım beni etiketlediniz.**\n > <a:hypesquad1:750076071721828452> Buyurun prefix(ön ek)im = ${prefix}\`);
 })
 
 //-------------Kendini Sağirlaştirma Komutu ---------------\\
