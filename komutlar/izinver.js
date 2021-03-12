@@ -29,15 +29,15 @@ message.reply(`${mm} Kullanıcısına Odana Girme İznini Aldın artık odana **
 }
 }
 
-
-exports.help = {
-    name : "izin",
-    aliases : ['gel'],
-    perm : [],
-    botPerm : ['MANAGE_CHANNELS'],
-    type : "oda"
-}
-exports.play  = {
-    desc : "Açtığınız Odaya birinin Gelmesini Sağlayabilirsiniz.",
-    cmd : "izin <ver/al> <@kullanıcı>"
-}
+  exports.conf = {
+    enabled: true,
+    guildOnly: false,
+    aliases: ['gel'],
+    permLevel: 0
+   };
+ 
+  exports.help = {
+    name: 'izin',
+    description: 'Açtığınız Odaya birinin Gelmesini Sağlayabilirsiniz.',
+    usage: 'izin <ver/al> <@kullanıcı>'
+   }
