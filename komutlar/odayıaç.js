@@ -19,15 +19,15 @@ if(args[0] == "aç") {
 }
 }
 
-
-exports.help = {
-    name : "herkese",
-    aliases : ['herkes'],
-    perm : [],
-    botPerm : ['MANAGE_CHANNELS'],
-    type : "oda"
-}
-exports.play  = {
-    desc : "odanızı Herkese açar.",
-    cmd : "herkese <aç/kapat>"
-}
+  exports.conf = {
+    enabled: true,
+    guildOnly: false,
+    aliases: ['herkes'],
+    permLevel: 0
+   };
+ 
+  exports.help = {
+    name: 'herkese',
+    description: 'odanızı Herkese açar.',
+    usage: 'herkese <aç/kapat>'
+   }
