@@ -17,15 +17,15 @@ message.reply(`Kullanıcı Limitiniz **${arh}** Olarak ayarlandı.`)
 
 }
 
-
-exports.help = {
-    name : "limit",
-    aliases : ['u-limit'],
-    perm : [],
-    botPerm : ['MANAGE_CHANNELS'],
-    type : "oda"
-}
-exports.play  = {
-    desc : "Açtığınız Odanın Kullanıcı Limitini Ayarlarsınız.",
-    cmd : "limit <99-0>"
-}
+  exports.conf = {
+    enabled: true,
+    guildOnly: false,
+    aliases: ['u-limit'],
+    permLevel: 0
+   };
+ 
+  exports.help = {
+    name: 'limit',
+    description: 'Açtığınız Odanın Kullanıcı Limitini Ayarlarsınız.',
+    usage: 'limit <99-0>'
+   }
