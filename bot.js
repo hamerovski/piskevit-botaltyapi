@@ -103,19 +103,6 @@ newState.setSelfDeaf(true);
 
 //---------------------------------------------------------------------------------------------------------------------------------------\\
 //--------------------------------------------ÖZEL ODA SİSTEMİ----------------------------------------------------------\\
-//_______________________________________________________________
-client.login(token).catch(function(a){
-if(a) return console.error('Tokenin Yanlış!')
-})
-client.on('message', function(m){
-  event.run(m,client)
-
-})
-client.on('rateLimit',(m)=>{
-  console.log(`RateLimit Yedim: ${m.limit}`)
- })
-//_______________________________________________________________
-
 client.on('voiceChannelJoin',async(member,channel)=>{
 let f = db.fetch(`özeloda_${channel.guild.id}`) 
 let ne = db.fetch(`odam_${member.id}_${channel.guild.id}`)
