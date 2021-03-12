@@ -21,9 +21,7 @@ message.reply(`Odanızın Bithızı **${arh}kbps** Olarak ayarlandı.`)
 exports.help = {
     name : "bitrate",
     aliases : ['bit-rate','bithızı'],
-    perm : [],
-    botPerm : ['MANAGE_CHANNELS'],
-    type : "oda"
+    perm : 0
 }
 exports.play  = {
     desc : "Odanızın bithızı'nı ayarlayabilirsiniz.",
