@@ -33,15 +33,15 @@ message.guild.channels.cache.get(f.channel.id).delete('Özel Oda Sistemi Lrows')
 }
 }
 
-
-exports.help = {
-    name : "kapat",
-    aliases : ['kapa'],
-    perm : [],
-    botPerm : ['MANAGE_CHANNELS'],
-    type : "oda"
-}
-exports.play  = {
-    desc : "Açtığınız Özel Odayı Silebilirsiniz.",
-    cmd : "kapat"
-}
+  exports.conf = {
+    enabled: true,
+    guildOnly: false,
+    aliases: ['kapa'],
+    permLevel: 0
+   };
+ 
+  exports.help = {
+    name: 'kapat',
+    description: 'Açtığınız Özel Odayı Silebilirsiniz.',
+    usage: 'kapat'
+   }
