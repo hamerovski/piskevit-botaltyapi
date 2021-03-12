@@ -155,13 +155,6 @@ client.on("message" , message => {
 //-------------------- Afk Sistemi --------------------//
 //-------------------- Afk Sistemi --------------------//
 //---------------------------------ÖZEL ODA SİSTEMİ--------------------------------------------------------------------\\
-
-
-client.on('rateLimit',(m)=>{
-  console.log(`RateLimit Yedim: ${m.limit}`)
- })
-//_______________________________________________________________
-
 client.on('voiceChannelJoin',async(member,channel)=>{
 let f = db.fetch(`özeloda_${channel.guild.id}`) 
 let ne = db.fetch(`odam_${member.id}_${channel.guild.id}`)
