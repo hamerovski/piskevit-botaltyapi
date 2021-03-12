@@ -38,15 +38,15 @@ message.channel.send(`\`${channel.name}\`, Özel Oda Kanallarından kaldırıld�
     
 }
 
-
-exports.help = {
-    name : "özel-oda",
-    aliases : ['özeloda'],
-    perm : ['MANAGE_GUILD'],
-    botPerm : ['SEND_MESSAGES'],
-    type : "other"
-}
-exports.play  = {
-    desc : "Özel Oda Kanalını Ayarlarsınız.",
-    cmd : "özeloda <ekle/çıkar> <kanal-ID/kanal-ad>"
-}
+  exports.conf = {
+    enabled: true,
+    guildOnly: false,
+    aliases: ['özeloda'],
+    permLevel: 3
+   };
+ 
+  exports.help = {
+    name: 'özel-oda',
+    description: 'Özel Oda Kanalını Ayarlarsınız.',
+    usage: 'özeloda <ekle/çıkar> <kanal-ID/kanal-ad>'
+   }
