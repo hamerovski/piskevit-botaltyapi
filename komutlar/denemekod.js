@@ -30,12 +30,12 @@ exports.run = (client, message, args) => {
 module.exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ["kizle","kanalwatch","channelwatch"],
+  aliases: ["kwatch", "denemekod"],
   permLevel: 0
 };
 
 module.exports.help = {
-  name: 'kanalizle',
+  name: 'denemekod',
   description: 'Kanal izlersiniz',
   usage: 'kanalizle '
 };
