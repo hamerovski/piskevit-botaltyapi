@@ -36,6 +36,6 @@ module.exports.conf = {
 
 module.exports.help = {
   name: 'denemekod',
-  description: 'Kanal izlersiniz',
-  usage: 'kanalizle '
+  description: 'asdads',
+  usage: 'denemekod '
 };
