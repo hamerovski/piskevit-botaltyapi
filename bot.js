@@ -143,7 +143,7 @@ client.on('message', async (message , bot)=> {
 const db = require("quick.db")
 const random = require("random");
 if(message.author.bot) return;
-if(message.channel.id !== "797114061027278868") return;
+if(message.channel.id !== "825056008069316708") return;
 let max 
 let min
 let qwe = random.int(min = 1, max = 5)
