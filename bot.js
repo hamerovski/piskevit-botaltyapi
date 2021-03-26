@@ -102,6 +102,17 @@ newState.setSelfDeaf(true);
 });
 
 //---------------------------------------------------------------------------------------------------------------------------------------\\
+client.on("message", async message => {
+  const ai = require('@codare/codare.ai')
+let kanal = "825056008069316708"
+if(message.channel.id !== kanal) return;
+if(message.author.bot == true) return;
+let soru = message.content;
+ai.sor(soru).then(enginar => {
+return message.channel.send(enginar) 
+
+});
+})
 //------------------------------------------------------------------------COİN-----------------------------------------------------------\\
 client.on('message', async (msg , bot)=> { 
 if(!msg.content.startsWith("/liderlik")) return;
