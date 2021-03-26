@@ -89,18 +89,20 @@ client.on("message",message=>{
 })
 
 //-------------Kendini Sağirlaştirma Komutu ---------------\\
-
-client.on('voiceStateUpdate', async (___, newState) => {
-if (
-newState.member.user.bot &&
-newState.channelID &&
-newState.member.user.id == client.user.id &&
-!newState.selfDeaf
-) {
-newState.setSelfDeaf(true);
-}
+//-----------------------------------------------YAPAY ZEKA------------------------------------------------------\\
+client.on("message", async message => {
+  const Database = require("plasma-db");
+const db = new Database("./database.json"); 
+  const ai = require('@codare/codare.ai')
+let kanal = db.fetch(`yapayzekakanal_${message.guild.id}`)
+if(!kanal) return;
+if(message.channel.id !== kanal) return;
+if(message.author.bot == true) return;
+let soru = message.content;
+ai.sor(soru).then(enginar => {
+return message.channel.send(enginar) 
 });
-
+})
 //---------------------------------------------------------------------------------------------------------------------------------------\\
 client.on("message", async message => {
   const ai = require('@codare/codare.ai')
