@@ -104,7 +104,7 @@ newState.setSelfDeaf(true);
 //---------------------------------------------------------------------------------------------------------------------------------------\\
 //------------------------------------------------------------------------COİN-----------------------------------------------------------\\
 client.on('message', async (msg , bot)=> { 
-if(!msg.content.startsWith("e.liderlik")) return;
+if(!msg.content.startsWith("/liderlik")) return;
  const sorted = msg.guild.members.cache.filter(u => !u.bot).array().sort((a, b) => { return (db.fetch(`para.${b.user.id + msg.guild.id}`) ? db.fetch(`para.${b.user.id + msg.guild.id}`) : 0) - (db.fetch(`para.${a.user.id + msg.guild.id}`) ? db.fetch(`para.${a.user.id + msg.guild.id}`) : 0) });
     const top10 = sorted.splice(0, 5)
      const mappedCoin = top10.filter(o => !o.bot).map(s => db.fetch(`para.${s.user.id + msg.guild.id}`) || 0)
@@ -147,8 +147,8 @@ if(xd1 == xd2) {
  db.delete(`zamanı.${message.guild.id+message.channel.id}`)
  db.delete(`zamanı1.${message.guild.id+message.channel.id}`)
 
-message.channel.send("Birisi yere 175 Coin düşürdü! Almak için 5 saniye içinde e.al yaz!").then(() => {
-	message.channel.awaitMessages(m => m.content === "e.al", { max: 1, time: 5000, errors: ['time'] })
+message.channel.send("Birisi yere 175 Coin düşürdü! Almak için 5 saniye içinde /al yaz!").then(() => {
+	message.channel.awaitMessages(m => m.content === "/al", { max: 1, time: 5000, errors: ['time'] })
 		.then(collected => {
 			message.channel.send(`${collected.first().author} parayı aldı!`);
             db.add(`para.${collected.first().author.id + message.guild.id}`, 175)
