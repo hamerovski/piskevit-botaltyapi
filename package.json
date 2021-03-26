@@ -17,6 +17,7 @@
     "@codare/codare.ai": "^1.0.2",
     "ffmpeg-static": "^4.2.7",
     "opusscript": "^0.0.7",
+    "plasma-db": "^1.1.0",
     "parse-ms": "^2.1.0",
     "random": "^3.0.3",
     "simple-youtube-api": "^5.2.1",
