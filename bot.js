@@ -116,65 +116,7 @@ return message.channel.send(enginar)
 
 });
 })
-//------------------------------------------------------------------------COİN-----------------------------------------------------------\\
-client.on('message', async (msg , bot)=> { 
-if(!msg.content.startsWith("/liderlik")) return;
- const sorted = msg.guild.members.cache.filter(u => !u.bot).array().sort((a, b) => { return (db.fetch(`para.${b.user.id + msg.guild.id}`) ? db.fetch(`para.${b.user.id + msg.guild.id}`) : 0) - (db.fetch(`para.${a.user.id + msg.guild.id}`) ? db.fetch(`para.${a.user.id + msg.guild.id}`) : 0) });
-    const top10 = sorted.splice(0, 5)
-     const mappedCoin = top10.filter(o => !o.bot).map(s => db.fetch(`para.${s.user.id + msg.guild.id}`) || 0)
-     const mappedName = top10.filter(o => !o.bot).map(s => s.user.tag);
-let kedjik = []
- for(var i = 0; i < 5; i++) {
-            var coin = mappedCoin[i]
-            var name = mappedName[i]
 
-            if(coin > 0) {
-              kedjik.push(`[${i + 1}] > ${name}\n  Coin: ${coin} \n\n`) 
-            }
-
-           
-        }
-let embed = new Discord.MessageEmbed()
-.setColor("RANDOM")
-.setTitle("Coin Sıralaması!")
-.setDescription(kedjik)
-msg.channel.send(embed)
-})
-client.on('message', async (message , bot)=> { 
-const db = require("quick.db")
-const random = require("random");
-if(message.author.bot) return;
-if(message.channel.id !== "825056008069316708") return;
-let max 
-let min
-let qwe = random.int(min = 1, max = 5)
-let xd1 = db.fetch(`zamanı.${message.guild.id+message.channel.id}`)
-if(!xd1) {
-db.set(`zamanı.${message.guild.id+message.channel.id}`,qwe)
-return;
-}
-db.add(`zamanı1.${message.guild.id+message.channel.id}`,1)
-let xd2 =db.fetch(`zamanı1.${message.guild.id+message.channel.id}`)
-if(xd1 == xd2) {
-
-
- db.delete(`zamanı.${message.guild.id+message.channel.id}`)
- db.delete(`zamanı1.${message.guild.id+message.channel.id}`)
-
-message.channel.send("Birisi yere 175 Coin düşürdü! Almak için 5 saniye içinde /al yaz!").then(() => {
-	message.channel.awaitMessages(m => m.content === "/al", { max: 1, time: 5000, errors: ['time'] })
-		.then(collected => {
-			message.channel.send(`${collected.first().author} parayı aldı!`);
-            db.add(`para.${collected.first().author.id + message.guild.id}`, 175)
-
-		})
-		.catch(collected => {
-			message.channel.send('Kimse zamanında yazamadı :C');
-		});
-});
-}
-})
-//----------------------------------------------------COİN-----------------------------------------------------------------------------------\\
 //-------------------- Afk Sistemi --------------------//
 //-------------------- Afk Sistemi --------------------//
 client.on("message" , message => {
