@@ -120,17 +120,17 @@ client.on('ready', async () => {// Can°B#1308
     if (yazi) return yazi;
     if (!yazi) return `1 saniye`;
   };
-client.guilds.forEach(async guild => {
+client.guilds.cache.forEach(async guild => {
 const asd = await data.fetch(`..başladı.${guild.id}`);
 if(asd) {
 const interval = setInterval(async function(){
 const kalanzaman = asd.süre - Date.now()   
-const c = await guild.channels.get(asd.channel).fetchMessage(asd.message);
+const c = await guild.channels.cache.get(asd.channel).messages.fetch(asd.message);
 if (kalanzaman <= 0) {
 clearInterval(interval)
 await sleep(50)
-const embed = new Discord.RichEmbed()
-  .setAuthor(client.user.username, client.user.avatarURL)
+const embed = new Discord.MessageEmbed()
+  .setAuthor(client.user.username, client.user.avatarURL())
   .setTimestamp()
   .setFooter(`Çekiliş Sistemi`)
   .setDescription(`**Ödül**: ${asd.ödül}
@@ -142,14 +142,14 @@ c.edit(embed)
 data.delete(`çk.${c.id}`)
 data.delete(`ödü.${c.id}`)
 data.delete(`ma.${c.id}`)
-const asdd = await c.reactions.get('🎉').fetchUsers({limit: c.reactions.get('🎉').count})
-guild.channels.get(asd.channel).send(`Tebrikler, ${asdd.random()}! Bizden ${asd.ödül} kazandın.
+const asdd = await c.reactions.get('🎉').users.fetchs({limit: c.reactions.get('🎉').count})
+guild.channels.cache.get(asd.channel).send(`Tebrikler, ${asdd.random()}! Bizden ${asd.ödül} kazandın.
 Ödülünü alabilmek için: ${asd.host1} kişisine ulaş.`)
 data.delete(`..başladı.${guild.id}`);
 } else {
 const kalanzamanyazi = destructMS(kalanzaman)
-const embed2 = new Discord.RichEmbed()
-  .setAuthor(client.user.username, client.user.avatarURL)
+const embed2 = new Discord.MessageEmbed()
+  .setAuthor(client.user.username, client.user.avatarURL())
   .setTimestamp()
   .setFooter(`Çekiliş Sistemi`)
 embed2.setDescription(`**Ödül**: ${asd.ödül}
