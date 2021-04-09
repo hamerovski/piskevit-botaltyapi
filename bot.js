@@ -89,83 +89,24 @@ client.on("message",message=>{
 })
 
 //-------------Kendini Sağirlaştirma Komutu ---------------\\
-//-----------------------------------------------ÇEKİLİŞ------------------------------------------------------\\
+//-----------------------------------------------SNİPE------------------------------------------------------\\
+client.on('messageDelete', async message => {// can#0002
+  if(message.author.bot || !message.content) return;
+  require('quick.db').push(message.guild.id, {
+    author: message.author,
+    authorTAG: message.author.tag,
+    authorID: message.author.id,
+    authorUSERNAME: message.author.username,
+    authorDISCRIMINATOR: message.author.discriminator,
+    messageID: message.id,
+    messageCHANNEL: message.channel,
+    messageCHANNELID: message.channel.id,
+    messageCONTENT: message.content,
+    messageCREATEDAT: message.createdAt
+  });
+});
+//-----------------------------------------------SNİPE------------------------------------------------------\\
 
-client.on('ready', async () => {// Can°B#1308
-  function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
-  
-  function destructMS(milli) {
-    if (isNaN(milli) || milli < 0) {
-      return null;
-    }
-  
-    var d, h, m, s;
-    s = Math.floor(milli / 1000);
-    m = Math.floor(s / 60);
-    s = s % 60;
-    h = Math.floor(m / 60);
-    m = m % 60;
-    d = Math.floor(h / 24);
-    h = h % 24;
-    var yazi;
-    if (d !== 0) yazi = `${d} gün`;
-    if (h !== 0 && yazi) yazi = yazi + `, ${h} saat`;
-    if (h !== 0 && !yazi) yazi = `${h} saat`;
-    if (m !== 0 && yazi) yazi = yazi + `, ${m} dakika`;
-    if (m !== 0 && !yazi) yazi = `${m} dakika`;
-    if (s !== 0 && yazi) yazi = yazi + `, ${s} saniye`;
-    if (s !== 0 && !yazi) yazi = `${s} saniye`;
-    if (yazi) return yazi;
-    if (!yazi) return `1 saniye`;
-  };
-client.guilds.cache.forEach(async guild => {
-const asd = await data.fetch(`..başladı.${guild.id}`);
-if(asd) {
-const interval = setInterval(async function(){
-const kalanzaman = asd.süre - Date.now()   
-const c = await guild.channels.cache.get(asd.channel).messages.fetch(asd.message);
-if (kalanzaman <= 0) {
-clearInterval(interval)
-await sleep(50)
-const embed = new Discord.MessageEmbed()
-  .setAuthor(client.user.username, client.user.avatarURL())
-  .setTimestamp()
-  .setFooter(`Çekiliş Sistemi`)
-  .setDescription(`**Ödül**: ${asd.ödül}
-
-Başlatan: ${asd.host}`)
-.setTimestamp(asd.süre)
-  .setTitle(`Çekiliş bitti!`)
-c.edit(embed)
-data.delete(`çk.${c.id}`)
-data.delete(`ödü.${c.id}`)
-data.delete(`ma.${c.id}`)
-const asdd = await c.reactions.get('🎉').users.fetchs({limit: c.reactions.get('🎉').count})
-guild.channels.cache.get(asd.channel).send(`Tebrikler, ${asdd.random()}! Bizden ${asd.ödül} kazandın.
-Ödülünü alabilmek için: ${asd.host1} kişisine ulaş.`)
-data.delete(`..başladı.${guild.id}`);
-} else {
-const kalanzamanyazi = destructMS(kalanzaman)
-const embed2 = new Discord.MessageEmbed()
-  .setAuthor(client.user.username, client.user.avatarURL())
-  .setTimestamp()
-  .setFooter(`Çekiliş Sistemi`)
-embed2.setDescription(`**Ödül**: ${asd.ödül}
-
-Başlatan: ${asd.host}
-Kalan zaman: ${kalanzamanyazi}
-
-Katılmak için 🎉 tepkisine tıklayın.`)
-c.edit(embed2)
-                }
-}, 5000)
-}
-})
-})
-
-//-----------------------------------------------ÇEKİLİŞ------------------------------------------------------\\
 //-----------------------------------------------YAPAY ZEKA------------------------------------------------------\\
 client.on("message", async message => {
   const Database = require("plasma-db");
