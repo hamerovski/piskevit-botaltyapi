@@ -35,6 +35,7 @@
     "fs": "^0.0.2",
     "ms": "^2.1.3",
     "superagent": "^6.1.0",
+    "burc.js": "^1.1.3",
     "weather-js": "^2.0.0",
     "@freezegold/anime.js": "^2.0.3",
     "qs": "^6.9.6",
