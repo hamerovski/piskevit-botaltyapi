@@ -89,6 +89,72 @@ client.on("message",message=>{
 })
 
 //-------------Kendini Sağirlaştirma Komutu ---------------\\
+
+const DisTube = require('distube')
+const distube = new DisTube(client, { searchSongs: true, emitNewSongOnly: true })
+client.on("message", async (message) => {
+    if (message.author.bot) return;
+    if (!message.content.startsWith(ayarlar.prefix)) return;
+    const args = message.content.slice(ayarlar.prefix.length).trim().split(/ +/g);
+    const command = args.shift();
+
+
+//Altan Usta ama Dcye giremeyen#1158
+//Altan Usta ama Dcye giremeyen#1158
+
+    if (command == "çal")
+        distube.play(message, args.join(" "));
+//Altan Usta ama Dcye giremeyen#1158
+//Altan Usta ama Dcye giremeyen#1158
+
+    if (["repeat", "loop"].includes(command))
+        distube.setRepeatMode(message, parseInt(args[0]));
+
+    if (command == "durdur") {
+        distube.stop(message);
+        message.channel.send("Müzik başarı ile durduruldu");
+    }
+
+    if (command == "geç")
+        distube.skip(message);
+
+    if (command == "sıra") {
+        let queue = distube.getQueue(message);
+        message.channel.send('Şuan Sırada:\n' + queue.songs.map((song, id) =>
+            `**${id + 1}**. ${song.name} - \`${song.formattedDuration}\``
+        ).slice(0, 10).join("\n"));
+    }
+
+    if ([`3d`, `bassboost`, `echo`, `karaoke`, `nightcore`, `vaporwave`].includes(command)) {
+        let filter = distube.setFilter(message, command);
+        message.channel.send("Şuanki Sıradakiler Fitrelemesi: " + (filter || "Kapalı"));
+    }
+});
+
+
+const status = (queue) => `Ses: \`${queue.volume}%\` | Filre: \`${queue.filter || "Kapalı"}\` | Loop: \`${queue.repeatMode ? queue.repeatMode == 2 ? "Bütün sıradakı" : "Bu şarkı" : "Kapalı"}\` | Otomatik oynatma: \`${queue.autoplay ? "Açık" : "Kapalı"}\``;
+
+distube
+    .on("playSong", (message, queue, song) => message.channel.send(
+        `Oynatılıyor \`${song.name}\` - \`${song.formattedDuration}\`\nŞu kişi tarafından istendi: ${song.user}\n${status(queue)}`
+    ))
+    .on("addSong", (message, queue, song) => message.channel.send(
+        `Şarkı ${song.name} - \`${song.formattedDuration}\` şu kişi tarafından sıraya eklendi ${song.user}`
+    ))
+   
+    .on("addList", (message, queue, playlist) => message.channel.send(
+        `Eklendi \`${playlist.name}\` oynatma listesine (${playlist.songs.length} songs) şu kişi tarafından \n${status(queue)}`
+    ))
+    .on("searchResult", (message, result) => {
+        let i = 0;
+          message.channel.send(`**1 ile 10 arasında bir sayı seçin lütfen**\n${result.map(song => `**${++i}**. ${song.name} - \`${song.formattedDuration}\``).join("\n")}\n*1-10 arasında bir sayı girmesseniz seçim 60 saniye içinde iptal edilir*`);
+    })
+    .on("searchCancel", (message) => message.channel.send(`Arama iptal edildi`))
+    .on("error", (message, e) => {
+        console.error(e)
+        message.channel.send("Beklenmedik bir hatayla karşılaştım: " + e);
+    });
+
 //-----------------------------------------------SNİPE------------------------------------------------------\\
 client.on('messageDelete', async message => {// can#0002
   if(message.author.bot || !message.content) return;
