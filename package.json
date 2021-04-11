@@ -20,7 +20,7 @@
     "plasma-db": "^1.1.0",
     "parse-ms": "^2.1.0",
     "random": "^3.0.3",
-    "discordjs-ytdl-advanced": "^0.1.6",
+    "distube": "^2.8.12",
     "canvas": "^2.7.0",
     "canvas-constructor": "^4.1.0",
     "hastebin-gen": "^2.0.5",
