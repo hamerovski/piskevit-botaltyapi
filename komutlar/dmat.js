@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 
 exports.run = async(client, message, args) => {
-   if (message.author.id != "427868241025695746") return message.reply('Bunu Sadece Sahibim Kullanabilir');
+   if (message.author.id != "801730181974327307") return message.reply('Bunu Sadece Sahibim Kullanabilir');
 message.delete()
   let wen = client.users.cache.get(args[0]) 
 if (!wen) return message.channel.send("Bir kişinin ID' si girin.") 
