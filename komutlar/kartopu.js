@@ -5,7 +5,7 @@ exports.run = (client, msg, args) => {
 let FwhyCode = args.slice(0).join(" ");
 if (FwhyCode.length < 1) {
 
-return msg.reply("**FwhyCode | Kime kartopu atmak isterin ya isim yaz yada etiketle!**");
+return msg.reply("**Kime kartopu atmak isterin ya isim yaz yada etiketle!**");
 
 } else {
 
