@@ -26,6 +26,7 @@
     "canvas-constructor": "^4.1.0",
     "hastebin-gen": "^2.0.5",
     "nodme": "^13.2.1",
+    "discord.js-minesweeper": "^1.0.6",
     "canvas-node": "^0.3.23",
     "quick.db": "^7.1.2",
     "snekfetch": "^4.0.4",
