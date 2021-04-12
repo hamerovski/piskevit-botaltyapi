@@ -1,6 +1,6 @@
 const Discord = require('discord.js');//Keyfine#0001
 const db = require('quick.db');
-const settings = require('../managment/settings.json')
+const settings = require('../ayarlar.json')
 
 exports.run = (client, message, args) => {  
     if(message.member.roles.cache.has(settings.roller.botcommand) || message.member.hasPermission('ADMINISTRATOR')) {
