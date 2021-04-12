@@ -23,6 +23,7 @@
     "eksisozlukjs": "^1.0.9",
     "distube": "^2.8.12",
     "canvas": "^2.7.0",
+    "cool-images": "^1.0.3",
     "canvas-constructor": "^4.1.0",
     "hastebin-gen": "^2.0.5",
     "nodme": "^13.2.1",
