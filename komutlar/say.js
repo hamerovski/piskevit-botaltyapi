@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const db = require('quick.db');
-const config = require('../../config.json');
+const config = require('../ayarlar.json');
 
 exports.run = (client, message, args) => {  
     if(message.member.roles.cache.has(config.botcommands) || message.member.hasPermission('ADMINISTRATOR')) {
