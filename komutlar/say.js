@@ -1,7 +1,6 @@
 const Discord = require("discord.js");
 module.exports.execute = async (client, message, args) => {       
 //Arox was here! (Luisa BFF)
-let Tag = "Tag" //Tagınız
 let ServerName = "Kahve House" // Sunucu Adını Giriniz
 let Kanal = "797114061027278868" // Açıklaması Değişecek Kanal
 let BoosterRole =  "809833269059125269" // Booster Rol ID
@@ -45,7 +44,7 @@ const emojiler = {
 message.channel.send(arxEmbed)
   client.setInterval(() => {
   let channel = client.channels.cache.get(Kanal); 
-  channel.setTopic(`**• ${ServerName}: ** ${client.emojili(`${TotalMember}`)} **• Online:** ${client.emojili(`${Online}`)} **• Family:** ${client.emojili(`${Taglı}`)}`);
+  channel.setTopic(`**• ${ServerName}: ** ${client.emojili(`${TotalMember}`)} **• Online:** ${client.emojili(`${Online}`)}`);
 }, 10000);
 }
 module.exports.configuration = {
