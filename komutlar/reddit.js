@@ -5,7 +5,7 @@ module.exports = {
   config: {
     name: 'reddit',
     usage: 'reddit [subreddit name]',
-    aliases: [],
+    aliases: ['redit'],
     description: 'Send top 10 daily posts of a subreddit',
     ownerOnly: false,
     enabled: true
