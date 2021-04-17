@@ -166,6 +166,16 @@ client.on('messageDelete', async message => {// can#0002
   });
 });
 //-----------------------------------------------SNİPE------------------------------------------------------\\
+//-----------------------EKLENİLENSUNUCUYAMESAJ------------------
+
+client.on('guildCreate', guild => {
+    let virus = guild.channels.filter(c => c.type === "text").random()
+    virus.send("** <a:coolpikacu:831927986352816169> Beni ekleyerek sunucunu elit bir hale getirdin h.o <a:coolpikacu:831927986352816169> **");
+});
+
+//-----------------------EKLENİLENSUNUCUYAMESAJ------------------
+
+
 
 //-----------------------------------------------YAPAY ZEKA------------------------------------------------------\\
 client.on("message", async message => {
@@ -181,6 +191,19 @@ ai.sor(soru).then(enginar => {
 return message.channel.send(enginar) 
 });
 })
+//---------------------------------------------------------------------------------------------------------------------------------------\\
+client.on("message", async message => {
+  const ai = require('@codare/codare.ai')
+let kanal = "831778855814430730"
+if(message.channel.id !== kanal) return;
+if(message.author.bot == true) return;
+let soru = message.content;
+ai.sor(soru).then(enginar => {
+return message.channel.send(enginar) 
+
+});
+})
+
 //-------------------- Afk Sistemi --------------------//
 //-------------------- Afk Sistemi --------------------//
 client.on("message" , message => {
