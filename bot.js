@@ -85,7 +85,7 @@ client.on('message', msg => {   if (msg.author.bot) return;
 });
 
 client.on("message",message=>{
-    if(message.content==`<@!${client.user.id}>`) return message.channel.send(`<a:kral:798101479424000020> **Sanırım beni etiketlediniz.**\n > <a:kral:798101479424000020> Buyurun prefix(ön ek)im \`${prefix}\``);
+    if(message.content==`<@!${client.user.id}>`) return message.channel.send(`<a:kral:831927977788571678> **Sanırım beni etiketlediniz.**\n > <a:kral:831927977788571678> Buyurun prefix(ön ek)im \`${prefix}\``);
 })
 
 //-------------Kendini Sağirlaştirma Komutu ---------------\\
@@ -98,14 +98,8 @@ client.on("message", async (message) => {
     const args = message.content.slice(ayarlar.prefix.length).trim().split(/ +/g);
     const command = args.shift();
 
-
-//Altan Usta ama Dcye giremeyen#1158
-//Altan Usta ama Dcye giremeyen#1158
-
     if (command == "çal")
         distube.play(message, args.join(" "));
-//Altan Usta ama Dcye giremeyen#1158
-//Altan Usta ama Dcye giremeyen#1158
 
     if (["repeat", "loop"].includes(command))
         distube.setRepeatMode(message, parseInt(args[0]));
@@ -190,7 +184,7 @@ return message.channel.send(enginar)
 //---------------------------------------------------------------------------------------------------------------------------------------\\
 client.on("message", async message => {
   const ai = require('@codare/codare.ai')
-let kanal = "825056008069316708"
+let kanal = "831778855814430730"
 if(message.channel.id !== kanal) return;
 if(message.author.bot == true) return;
 let soru = message.content;
@@ -259,9 +253,9 @@ client.on("ready",async message => {
 
   
   
-  var mesajid = "804426306212331520"
-  var kanalid = "804426055314047026"
-  var sunucuid = "796847477080850462"
+  var mesajid = "833003659779506198"
+  var kanalid = "831777285266866227"
+  var sunucuid = "831704225133625359"
   var tarih = "June 26 2021 10:15:00 UTC+3" //İNGİLİZCE AY / GÜN / YIL / SAAT / DAKİKA / SANİYE 
   var bitiş = "Zaman doldu koçum geçmiş olsun"
   var yenilemearalığı = 5000 // milisaniye cinsinden EN AZ 5 SANİYE
@@ -463,7 +457,7 @@ client.on('error', e => {
 ////--------------BOTA DM ATANLAR BAŞLANGIÇ-------------////
 
 client.on("message", msg => {
-  var dm = client.channels.cache.get("797114065582555136");
+  var dm = client.channels.cache.get("831751318183608350");
   if (msg.channel.type === "dm") {
     if (msg.author.id === client.user.id) return;
     const botdm = new Discord.MessageEmbed()
