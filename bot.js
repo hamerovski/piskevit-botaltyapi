@@ -177,32 +177,6 @@ client.on('guildCreate', guild => {
 
 
 
-//-----------------------------------------------YAPAY ZEKA------------------------------------------------------\\
-client.on("message", async message => {
-  const Database = require("plasma-db");
-const db = new Database("./database.json"); 
-  const ai = require('@codare/codare.ai')
-let kanal = db.fetch(`yapayzekakanal_${message.guild.id}`)
-if(!kanal) return;
-if(message.channel.id !== kanal) return;
-if(message.author.bot == true) return;
-let soru = message.content;
-ai.sor(soru).then(enginar => {
-return message.channel.send(enginar) 
-});
-})
-//---------------------------------------------------------------------------------------------------------------------------------------\\
-client.on("message", async message => {
-  const ai = require('@codare/codare.ai')
-let kanal = "831778855814430730"
-if(message.channel.id !== kanal) return;
-if(message.author.bot == true) return;
-let soru = message.content;
-ai.sor(soru).then(enginar => {
-return message.channel.send(enginar) 
-
-});
-})
 
 //-------------------- Afk Sistemi --------------------//
 //-------------------- Afk Sistemi --------------------//
