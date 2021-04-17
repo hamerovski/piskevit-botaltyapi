@@ -8,7 +8,7 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${message
   
   let phentos = "**Sesli Kanalda Olan Yetkililer:**\n";
   let phentos2 = "**Sesli Kanalda Olmayan Yetkililer:**\n";
-  message.guild.roles.cache.get("830614934441295893").members.map(r => { //herkeste olan rolü yazın.
+  message.guild.roles.cache.get("831787847995490376").members.map(r => { //herkeste olan rolü yazın.
     phentos += r.voice.channel ? "•  <@" + r.user.id + ">\n" : "";
     phentos2 += !r.voice.channel ? "•  <@" + r.user.id + ">\n" : "";
   });
