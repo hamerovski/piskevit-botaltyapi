@@ -181,19 +181,6 @@ ai.sor(soru).then(enginar => {
 return message.channel.send(enginar) 
 });
 })
-//---------------------------------------------------------------------------------------------------------------------------------------\\
-client.on("message", async message => {
-  const ai = require('@codare/codare.ai')
-let kanal = "831778855814430730"
-if(message.channel.id !== kanal) return;
-if(message.author.bot == true) return;
-let soru = message.content;
-ai.sor(soru).then(enginar => {
-return message.channel.send(enginar) 
-
-});
-})
-
 //-------------------- Afk Sistemi --------------------//
 //-------------------- Afk Sistemi --------------------//
 client.on("message" , message => {
@@ -315,102 +302,17 @@ const countdown = (param) => {
 
 
 //---------------------------------------------------------------
-
-
-
-
-
-//-----------------------EKLENİLENSUNUCUYAMESAJ------------------
-
-client.on('guildCreate', guild => {
-    let virus = guild.channels.filter(c => c.type === "text").random()
-    virus.send("** <a:coolemoji:798101483077632021> Beni ekleyerek sunucunu elit bir hale getirdin h.o <a:coolemoji:798101483077632021> **");
-});
-
-//-----------------------EKLENİLENSUNUCUYAMESAJ------------------
-
-
-
 //--------------------------------------
 
 client.on('message', message =>{
 const sa = message.content.toLowerCase()
 
 if(sa === 'sa' || sa === 'sea' || sa === 'selamun aleyküm' || sa === 'selamün aleyküm' || sa === 'Selamun Aleyküm' || sa === 'Selamun aleyküm' || sa === 'Selamun Aleyküm') {
-message.channel.send(`**Aleyküm Selam Hoş Geldin <@${message.author.id}> <a:pikahello:797177533123526678>**`)
+message.channel.send(`**Aleyküm Selam Hoş Geldin <@${message.author.id}> <a:hiii:831944093713301514>**`)
     }
 })
 
 //-----------SA-AS----EMOJİ--------------
-
-
-//----------- YKS GERİ SAYIM2 deadline-------------
-client.on("ready",async message => {
-  
-
-  
-   
-  var mesajid = "804422471977140305"
-  var kanalid = "804420750320205845"
-  var sunucuid = "768453225958998076"
-  var tarih = "June 26 2021 10:15:00 UTC+3" //İNGİLİZCE AY / GÜN / YIL / SAAT / DAKİKA / SANİYE 
-  var bitiş = "Zaman doldu koçum geçmiş olsun"
-  var yenilemearalığı = 5000 // milisaniye cinsinden EN AZ 5 SANİYE
-  
-
-
-  
-  
-let kanall = await client.channels.fetch(kanalid) 
-const countdownTextNow = (output) => {
-    return (date) => {
-        const ms = msCountdown(date)
-        const days = Math.floor( ms/(1000*60*60*24) );
-        const hours = Math.floor((ms % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((ms % (1000 * 60)) / 1000);
-        return output(days,hours,minutes,seconds);
-    };
-}
-const msCountdown = date => Date.parse(date) - Date.parse(new Date());
-
-const countdown = (param) => {
-   
-     
-      
-        const cd = () => {
-            if (msCountdown(param.date) < 0) {
-            
-             client.channels.cache.get(kanalid).send(`${param.end}`).catch(err=>console.log(err));
-                return;
-            }
-       
-
-          kanall.messages.fetch(mesajid).then(x => {
-      x.edit(`${(countdownTextNow)(param.output)(param.date)}`)
-   
-   })
-           .then(a=>setTimeout(cd, param.timeout))
-                .catch(err=>console.log(err))
- 
-        }; 
-        cd();
-    }
-
-  console.log(`${countdown({
-        date : tarih,
-        output: (d,h,m,s) => `${d}gün ${h}saat ${m}dakika ${s}saniye`,
-        end:  bitiş,
-        timeout: yenilemearalığı
-    })}`)
-  
-  
-  
-  
-})
-//-----------
-
-
 
 client.unload = command => {
     return new Promise((resolve, reject) => {
