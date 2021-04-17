@@ -20,7 +20,7 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${message
   message.channel.send(phentosembed).then(s => s.s);
 };
 module.exports.conf = {
-  aliases: ["syetkililer", "sesyetki"]
+  aliases: ["syetkililer", "sesyetki", "yetkilisay"]
 };
 
 module.exports.help = {
