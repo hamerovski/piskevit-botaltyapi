@@ -92,9 +92,6 @@ client.on("message",message=>{
 //-------------------------------------------Aktivite Botu Altyapısı---------------------------------------------\\
 
 const {Slash} = require("discord-slash-commands");
-const slash = new Slash({
-    client: client1
-})
 const embed = new MessageEmbed();
 
 slash.on("create", (d) => {
