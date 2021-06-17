@@ -4,7 +4,7 @@ exports.run = (client, message, params) => {
 
 const virus = new Discord.MessageEmbed()
 
-      .setAuthor(message.author.username + " Lafı Koydu !!")
+      .setAuthor(message.author.username + " Lafı Koydu !! Şak")
       .setColor("RED")
        .setFooter("Piskevit")
       .setTimestamp()
