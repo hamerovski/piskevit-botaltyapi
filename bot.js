@@ -91,9 +91,7 @@ client.on("message",message=>{
 
 //-------------------------------------------Aktivite Botu Altyapısı---------------------------------------------\\
 
-const {
-    Slash
-} = require("discord-slash-commands");
+const {Slash} = require("discord-slash-commands");
 const slash = new Slash({
     client: client1
 })
@@ -221,48 +219,6 @@ slash.on("command", async (command) => {
         }
     }
 })
-
-client1.on("ready", () => {
-    console.log("Bot Aktif");
-    slash.create({
-        guildOnly: false,
-        data: {
-            name: "aktivite",
-            description: "Ses kanalı etkinlikleri",
-            options: [{
-                    name: "channel",
-                    description: "İstediğiniz ses kanalını seçin.",
-                    required: true,
-                    type: 7,
-                },
-                {
-                    name: "type",
-                    description: "Aktivite çeşitleri.",
-                    required: true,
-                    type: 3,
-                    choices: [{
-                            name: "YouTube İzle",
-                            value: "yt"
-                        },
-                        {
-                            name: "Betrayal.io",
-                            value: "bio"
-                        },
-                        {
-                            name: "Poker Night",
-                            value: "pn"
-                        },
-                        {
-                            name: "Fishington.io",
-                            value: "fio"
-                        }
-                    ]
-                }
-            ]
-        }
-    })
-})
-
 //-------------------------------------------Aktivite Botu Altyapısı---------------------------------------------\\
 //-------------Kendini Sağirlaştirma Komutu ---------------\\
 
