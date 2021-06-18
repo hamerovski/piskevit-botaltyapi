@@ -6,13 +6,13 @@ var prefix = ayarlar.prefix;
 
 module.exports = client => {
 var oyun = [
-        "🔥 p.yardım | Yardım Menüsü",
-        "🌈 Yeni Prefiximiz p.",
-        "👊 p.napim | Lafı Çak!",
-        "🦠 p.koronatest | Test Yaptır!",
-        "💸 p.döviz | Güncel Döviz Fiyatları",
-        "💲 p.bitcoin | Bitcoin Fiyatları",
-        "⭐️ p.tarot | Bir Kart Çek! "  
+        "🔥 /yardım | Yardım Menüsü",
+        "🌈 Sizler için çalışıyoruz.",
+        "👊 /napim | Lafı Çak!",
+        "🦠 /koronatest | Test Yaptır!",
+        "💸 /döviz | Güncel Döviz Fiyatları",
+        "💲 /bitcoin | Bitcoin Fiyatları",
+        "⭐️ /tarot | Bir Kart Çek! "  
     ];
 
     setInterval(function() {
