@@ -45,7 +45,6 @@
     "opgg-scrape": "^1.0.3",
     "sozluk-api": "^1.0.2",
     "detective-cjs": "^3.1.1",
-    "tcmb-doviz": "^1.0.6",
     "humanize-duration": "^3.25.1",
     "common-tags": "^1.8.0",
     "discord.js-commando": "^0.12.3",
