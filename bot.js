@@ -172,18 +172,6 @@ client.on('messageDelete', async message => {// can#0002
   });
 });
 //-----------------------------------------------SNİPE------------------------------------------------------\\
-//-----------------------EKLENİLENSUNUCUYAMESAJ------------------
-
-client.on('guildCreate', guild => {
-    let virus = guild.channels.filter(c => c.type === "text").random()
-    virus.send("** <a:coolpikacu:831927986352816169> Beni ekleyerek sunucunu elit bir hale getirdin h.o <a:coolpikacu:831927986352816169> **");
-});
-
-//-----------------------EKLENİLENSUNUCUYAMESAJ------------------
-
-
-
-
 //-------------------- Afk Sistemi --------------------//
 //-------------------- Afk Sistemi --------------------//
 client.on("message" , message => {
@@ -243,9 +231,9 @@ client.on("ready",async message => {
 
   
   
-  var mesajid = "833003659779506198"
-  var kanalid = "831777285266866227"
-  var sunucuid = "831704225133625359"
+  var mesajid = "855730902855581717"
+  var kanalid = "855004498337726466"
+  var sunucuid = "855004497712644096"
   var tarih = "June 26 2021 10:15:00 UTC+3" //İNGİLİZCE AY / GÜN / YIL / SAAT / DAKİKA / SANİYE 
   var bitiş = "Zaman doldu koçum geçmiş olsun"
   var yenilemearalığı = 5000 // milisaniye cinsinden EN AZ 5 SANİYE
@@ -362,7 +350,7 @@ client.on('error', e => {
 ////--------------BOTA DM ATANLAR BAŞLANGIÇ-------------////
 
 client.on("message", msg => {
-  var dm = client.channels.cache.get("831751318183608350");
+  var dm = client.channels.cache.get("855004497775951898");
   if (msg.channel.type === "dm") {
     if (msg.author.id === client.user.id) return;
     const botdm = new Discord.MessageEmbed()
@@ -524,6 +512,6 @@ client.on('message', message => {
 
 
 client.on('ready', ()=>{
-client.channels.cache.get('797114111040684113').join()
+client.channels.cache.get('855731365453496320').join()
 })
 
