@@ -90,9 +90,61 @@ client.on("message",message=>{
 })
 
 
-//-------------------------------------------Aktivite Botu Altyapısı---------------------------------------------\\
-
-//-------------------------------------------Aktivite Botu Altyapısı---------------------------------------------\\
+//-------------------------------------------Davet Butonları---------------------------------------------\\
+client.on('clickButton', async (button) => {
+  const embed = new Discord.MessageEmbed()
+  .setTitle('Davet linkim')
+  .setDescription('Görünüşe göre davet linkimi istemişsin aşağıya tıklayıp beni davet edebilirsin!')
+let buton = new MessageButton()
+.setStyle('url')
+.setID('davetbutton')
+.setLabel('Buraya tıkla')
+.setURL('https://discord.com/oauth2/authorize?client_id=785617915323875338&scope=bot&permissions=8')
+  if (button.id === 'davet') {
+    button.channel.send({embed: embed , buttons: [buton]});    
+  }
+});
+//
+client.on('clickButton', async (button) => {
+  const embed = new Discord.MessageEmbed()
+  .setTitle('Destek sunucum')
+  .setDescription('Görünüşe göre destek sunucumun linkini istemişsin aşağıya tıklayıp katılabilirsin!')
+let buton = new MessageButton()
+.setStyle('url')
+.setID('destekbutton')
+.setLabel('Buraya tıkla')
+.setURL('https://discord.gg/Jb2U9ghXZ9')
+  if (button.id === 'destek') {
+    button.channel.send({embed: embed , buttons: [buton]});    
+  }
+});
+client.on('clickButton', async (button) => {
+  const embed = new Discord.MessageEmbed()
+  .setTitle('Websitem')
+  .setDescription('Görünüşe göre websitemin linkini istemişsin websiteme aşağıya tıklayıp girebilirsin!')
+let buton = new MessageButton()
+.setStyle('url')
+.setID('destekbutton')
+.setLabel('Buraya tıkla')
+.setURL('https://panel.syro.cf/')
+  if (button.id === 'Website') {
+    button.channel.send({embed: embed , buttons: [buton]});    
+  }
+});
+client.on('clickButton', async (button) => {
+  const embed = new Discord.MessageEmbed()
+  .setTitle('Oy verme')
+  .setDescription('Görünüşe göre bana oy vermek istiyorsun aşağıya tıklayıp bana oy verebilirsin!')
+let buton = new MessageButton()
+.setStyle('url')
+.setID('destekbutton')
+.setLabel('Buraya tıkla')
+.setURL('https://top.gg/bot/785617915323875338/vote')
+  if (button.id === 'oy') {
+    button.channel.send({embed: embed , buttons: [buton]});    
+  }
+});
+//-------------------------------------------Davet Butonları---------------------------------------------\\
 
 
 //-------------Kendini Sağirlaştirma Komutu ---------------\\
