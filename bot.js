@@ -512,7 +512,30 @@ client.on('message', message => {
 //--------------------------------------------------------//
 
 
-client.on('ready', ()=>{
-client.channels.cache.get('855731365453496320').join()
-})
+async function RadioRepeater() {//hamzamertakbaba#3575
+  let Channel = client.channels.cache.get("855731365453496320");
+  var streamURL = "http://fenomen.listenfenomen.com/fenomen/256/icecast.audio";
+  if(!Channel) return;
+   await Channel.leave();
+   Channel.join().then(connection => {
+    const dispatcher = connection.play(streamURL);
+    dispatcher.setVolume(100/100) //Radyonun sesini ayarlarsınız. Değiştirmek isterseniz en soldakini değiştirin. Örnek olarak: dispatcher.setVolume(50/100)
+
+});
+};
+
+client.on('ready', () => {//hamzamertakbaba#3575
+  RadioRepeater()
+  setInterval(RadioRepeater, Math.max(3600000))
+  let Channel = client.channels.cache.get("855731365453496320")
+  if(!Channel) return;
+    var streamURL = "http://fenomen.listenfenomen.com/fenomen/256/icecast.audio";
+     
+    
+           Channel.join().then(connection => {
+              const dispatcher = connection.play(streamURL);
+              dispatcher.setVolume(100/100) //Radyonun sesini ayarlarsınız. Değiştirmek isterseniz en soldakini değiştirin. Örnek olarak: dispatcher.setVolume(50/100)
+      
+          });
+  });
 
