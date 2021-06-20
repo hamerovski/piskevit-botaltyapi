@@ -14,11 +14,6 @@ exports.run = (client, message, args) => {
   .setLabel('Destek sunucusu') 
   .setID('destek')
 
-  let buton3 = new MessageButton()
-  .setStyle('green') 
-  .setLabel('Web site') 
-  .setID('Website')
-
   let buton4 = new MessageButton()
   .setStyle('green') 
   .setLabel('Oy ver') 
