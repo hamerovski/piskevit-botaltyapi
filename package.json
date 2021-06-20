@@ -19,6 +19,7 @@
     "opusscript": "^0.0.8",
     "plasma-db": "^1.1.0",
     "parse-ms": "^3.0.0",
+    "discord-buttons": "^3.2.1",
     "random": "^3.0.3",
     "eksisozlukjs": "^1.0.9",
     "distube": "^2.8.12",
