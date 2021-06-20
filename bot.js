@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+require('discord-buttons')(client);
 const ayarlar = require('./ayarlar.json');
 const chalk = require('chalk');
 const moment = require('moment');
@@ -77,7 +78,6 @@ client.load = command => {
 };
 
 client.login(ayarlar.token);
-require('discord-buttons')(client);
 
 
 
