@@ -114,7 +114,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'ses',
+  name: 'youtube',
   description: 'Ses kanalında youtube oyun v.s açmanıza yarar',
   usage: 'ses'
 };
