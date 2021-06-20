@@ -1,56 +1,26 @@
 const Discord = require('discord.js');
+const { MessageButton } = require('discord-buttons');
 
-exports.run = async (client, message, args)=> {
-//let us = message.guild.members.cache.find(u => args.slice(0).join(' ').includes(u.username))
-let muser = message.mentions.users.first();
-let userid;
-if(isNaN(args[0])){
-  if(!muser){
-    userid = message.author.id;
-  }else{
-    userid = muser.id;
-  }
-}else{
-  userid = args[0];
-}
-try{
-let user = await client.users.fetch(userid);
-let avatar = user.displayAvatarURL({dynamic: true, size: 1024})
-if(avatar.endsWith(".gif?size=1024")) {
+exports.run = async (client, message, args) => {
 
-let embed = new Discord.MessageEmbed()
-.setAuthor(user.tag + '', user.displayAvatarURL())
-.setDescription(`**[[PNG]](${user.displayAvatarURL({ format: 'png', size: 1024 })})** | **[[JPEG]](${user.displayAvatarURL({ format: 'jpeg', size: 1024 })})** | **[[GIF]](${user.displayAvatarURL({ format: 'gif', size: 1024 })})** | **[[WEBP]](${user.displayAvatarURL({ format: 'webp', size: 1024 })})**`)
-.setImage(user.displayAvatarURL({dynamic: true, size: 1024}))
-.setColor("RANDOM")
-message.channel.send(embed)
+  if(message.mentions.users.first()) message.author = message.mentions.users.first();
 
-} else {
+  const embed = new Discord.MessageEmbed()
+  .setImage(message.author.displayAvatarURL({ dynamic: true, size: 4096, format: 'png' }))
+  .setColor('GOLD');
 
-  let embed = new Discord.MessageEmbed()
-.setAuthor(user.tag + '', user.displayAvatarURL())
-.setDescription(`**[[PNG]](${user.displayAvatarURL({ format: 'png',  size: 1024 })})** | **[[JPEG]](${user.displayAvatarURL({ format: 'jpeg',  size: 1024 })})** | **~~[GIF]~~** | **[[WEBP]](${user.displayAvatarURL({ format: 'webp',  size: 1024 })})**`)
-.setImage(user.displayAvatarURL({dynamic: true, size: 1024}))
-.setColor("RANDOM")
-message.channel.send(embed)
+  const button = new MessageButton()
+  .setLabel('Avatar URL')
+  .setStyle('url')
+  .setURL(message.author.displayAvatarURL({ dynamic: true, size: 4096, format: 'png' }));
 
-}
-}catch{
-  message.channel.send(new Discord.MessageEmbed().setColor("RANDOM").setDescription("Kullanıcıyı Bulamadım!"));
-  return;
-}
+  return message.channel.send({ embed: embed, component: button });
 
-}
-
- exports.conf = {
-  enabled: true,
-  guildOnly: false,
-  aliases: ['avatarım'],
-  permLevel: 0
+};
+exports.config = {
+  aliases: []
 };
 
 exports.help = {
-  name: 'avatar',
-  description: '',
-  usage: 'avatar [@kullanıcı]'
+  name: 'avatar'
 };
