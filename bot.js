@@ -77,6 +77,7 @@ client.load = command => {
 };
 
 client.login(ayarlar.token);
+require('discord-buttons')(client);
 
 
 
