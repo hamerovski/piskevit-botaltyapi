@@ -14,13 +14,13 @@ exports.run = (client, message, args) => {
   .setLabel('Destek sunucusu') 
   .setID('destek')
 
-  let buton4 = new MessageButton()
+  let buton3 = new MessageButton()
   .setStyle('green') 
   .setLabel('Oy ver') 
   .setID('oy')
 
 message.channel.send({embed: embed , buttons: [
-  buton1, buton2, buton3, buton4
+  buton1, buton2, buton3
 ]});}
 
 
