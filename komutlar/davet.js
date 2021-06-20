@@ -1,36 +1,25 @@
-const  Discord = require("discord.js"); 
-const { MessageButton } = require('discord-buttons');
-exports.run = (client, message, args) => {
-  const embed = new Discord.MessageEmbed()
-  .setTitle(':book:  Lİnklerim  :book:')
+const Discord = require('discord.js');
+const client = new Discord.Client();
+const ayarlar = require('../ayarlar.json');
 
-  let buton1 = new MessageButton()
-  .setStyle('green')
-  .setLabel('Davet') 
-  .setID('davet')
-  //
-  let buton2 = new MessageButton()
-  .setStyle('green') 
-  .setLabel('Destek sunucusu') 
-  .setID('destek')
-
-  let buton3 = new MessageButton()
-  .setStyle('green') 
-  .setLabel('Oy ver') 
-  .setID('oy')
-
-message.channel.send({embed: embed , buttons: [
-  buton1, buton2, buton3
-]});}
-
+exports.run = (client, message) => {
+  const devtr = new Discord.MessageEmbed()
+  .setTitle("Davet Linkleri Altta Belirtilmiştir")
+  .setColor("RANDOM")
+    .addField("» **Botun Sahibi**", "@Hamerovski#0001| Hamerovski#0001 ")
+    .addField("**» Destek Sunucusu**", " [Sunucumuza Katıl]( https://discord.gg/PxUpH9NyaG)", )
+    .addField("**» Davet Linki**", " [Botu Davet Et](https://discord.com/oauth2/authorize?client_id=801730181974327307&scope=bot&permissions=8)", )
+   .setFooter(`${message.author.tag} Tarafından İstendi.`, message.author.avatarURL())
+  message.channel.send(devtr); 
+};
 
 exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: [],
-  permLevel: 0
+  permLevel: 0,
 };
 
 exports.help = {
-  name: 'davet'
+  name: 'davet',
 };
