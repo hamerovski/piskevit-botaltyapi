@@ -91,6 +91,7 @@ client.on("message",message=>{
 
 
 //-------------------------------------------Davet Butonları---------------------------------------------\\
+
 client.on('clickButton', async (button) => {
   const embed = new Discord.MessageEmbed()
   .setTitle('Davet linkim')
@@ -115,6 +116,19 @@ let buton = new MessageButton()
 .setLabel('Buraya tıkla')
 .setURL('https://discord.gg/PxUpH9NyaG')
   if (button.id === 'destek') {
+    button.channel.send({embed: embed , buttons: [buton]});    
+  }
+});
+client.on('clickButton', async (button) => {
+  const embed = new Discord.MessageEmbed()
+  .setTitle('Websitem')
+  .setDescription('Görünüşe göre websitemin linkini istemişsin websitem şuanlık çevrimdışı :(')
+let buton = new MessageButton()
+.setStyle('url')
+.setID('destekbutton')
+.setLabel('Buraya tıkla')
+.setURL('')
+  if (button.id === 'Website') {
     button.channel.send({embed: embed , buttons: [buton]});    
   }
 });
