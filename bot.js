@@ -512,6 +512,6 @@ client.on('message', message => {
 
 
 client.on('ready', ()=>{
-client.channels.cache.get('856061056199295006').join()
+client.channels.cache.get('855731365453496320').join()
 })
 
