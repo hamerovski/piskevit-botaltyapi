@@ -1,23 +1,41 @@
-const Discord = require('discord.js');
+const  Discord = require("discord.js"); 
+const { MessageButton } = require('discord-buttons');
+exports.run = (client, message, args) => {
+  const embed = new Discord.MessageEmbed()
+  .setTitle(':book:  Lİnklerim  :book:')
 
-exports.run = (client, message) => {
-  
-  const davet = new Discord.MessageEmbed()
-  .setColor('ORANGE')
-  .setThumbnail('https://media.discordapp.net/attachments/720029424216440923/735255651638313061/727894683061321759.gif')
-  .setDescription(`Bu Botu Sunucuna Ekleyebilirsin Linki Aşşağıda
+  let buton1 = new MessageButton()
+  .setStyle('green')
+  .setLabel('Davet') 
+  .setID('davet')
+  //
+  let buton2 = new MessageButton()
+  .setStyle('green') 
+  .setLabel('Destek sunucusu') 
+  .setID('destek')
 
-https://discord.com/oauth2/authorize?client_id=801730181974327307&scope=bot&permissions=8
+  let buton3 = new MessageButton()
+  .setStyle('green') 
+  .setLabel('Web site') 
+  .setID('Website')
 
-`)
-  message.channel.send(davet)
-}
+  let buton4 = new MessageButton()
+  .setStyle('green') 
+  .setLabel('Oy ver') 
+  .setID('oy')
+
+message.channel.send({embed: embed , buttons: [
+  buton1, buton2, buton3, buton4
+]});}
+
+
 exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: [],
   permLevel: 0
-}
+};
+
 exports.help = {
-  name: "davet"
-}
+  name: 'davet'
+};
