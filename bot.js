@@ -86,7 +86,7 @@ client.on('message', msg => {   if (msg.author.bot) return;
 });
 
 client.on("message",message=>{
-    if(message.content==`<@!${client.user.id}>`) return message.channel.send(`<a:kral:831927977788571678> **Sanırım beni etiketlediniz.**\n > <a:kral:831927977788571678> Buyurun prefix(ön ek)im \`${prefix}\``);
+    if(message.content==`<@!${client.user.id}>`) return message.channel.send(`<a:seyyy:855194077964533772> **Sanırım beni etiketlediniz.**\n > <a:krall:855187603983564840> Buyurun prefix(ön ek)im \`${prefix}\``);
 })
 
 
@@ -300,7 +300,7 @@ client.on('message', message =>{
 const sa = message.content.toLowerCase()
 
 if(sa === 'sa' || sa === 'sea' || sa === 'selamun aleyküm' || sa === 'selamün aleyküm' || sa === 'Selamun Aleyküm' || sa === 'Selamun aleyküm' || sa === 'Selamun Aleyküm') {
-message.channel.send(`**Aleyküm Selam Hoş Geldin <@${message.author.id}> <a:hiii:831944093713301514>**`)
+message.channel.send(`**Aleyküm Selam Hoş Geldin <@${message.author.id}> <a:helloo:855204255446073346>**`)
     }
 })
 
