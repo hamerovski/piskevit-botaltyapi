@@ -90,9 +90,19 @@ client.on("message",message=>{
 })
 
 
-//-------------------------------------------Davet Butonları---------------------------------------------\\
-
-//-------------------------------------------Davet Butonları---------------------------------------------\\
+//-------------------------------------------Bota Atılan DMleri Görme--------------------------------------------\\
+      client.on("message", message => {
+        if (message.channel.type === "dm") {
+          if (message.author.bot) return;
+          client.channels.cache.get("855004497775951898").send(new Discord.MessageEmbed()
+          .setDescription(`${message.author.tag} Kişisi Özelden Mesaj Attı!`)
+          .addField(`Gönderilen Mesaj`, message.content)
+          .setFooter(`Brita`)
+          .setColor(`#00ffee`)
+          .setThumbnail(message.author.avatarURL()));
+        }
+      });
+//-------------------------------------------Bota Atılan DMleri Görme--------------------------------------------\\
 
 
 //-------------Kendini Sağirlaştirma Komutu ---------------\\
