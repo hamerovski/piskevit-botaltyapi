@@ -28,6 +28,7 @@
     "canvas": "^2.8.0",
     "cool-images": "^1.0.3",
     "canvas-constructor": "^4.1.0",
+    "film-apisi": "^1.0.0",
     "hastebin-gen": "^2.0.5",
     "nodme": "^13.2.1",
     "discord.js-minesweeper": "^1.0.6",
