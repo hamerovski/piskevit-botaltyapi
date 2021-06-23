@@ -103,8 +103,20 @@ client.on("message",message=>{
         }
       });
 //-------------------------------------------Bota Atılan DMleri Görme--------------------------------------------\\
-
-
+//----------------------------------------------------------------------------
+client.on("guildMemberBoost", (member) => {
+    const logs = require("discord-logs");
+    logs(client);
+    let channel = client.channels.cache.get("855004498006900782");
+    channel.send(
+        new Discord.MessageEmbed()
+            .setDescription(
+                `> ${member}, Sunucuya boost takviyesinde bulundu teşekkürler!`
+            )
+            .setColor("#ee1289")
+    );
+});
+//----------------------------------------------------------------------------
 //-------------Kendini Sağirlaştirma Komutu ---------------\\
 
 const DisTube = require('distube')
