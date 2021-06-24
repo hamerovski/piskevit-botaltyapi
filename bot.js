@@ -255,7 +255,7 @@ client.on("ready",async message => {
   
   var mesajid = "857576176602972181"
   var kanalid = "857576145334829077"
-  var sunucuid = "754433509032067145"
+  var sunucuid = "855004497712644096"
   var tarih = "June 26 2021 10:15:00 UTC+3" //İNGİLİZCE AY / GÜN / YIL / SAAT / DAKİKA / SANİYE 
   var bitiş = "Zaman doldu koçum geçmiş olsun"
   var yenilemearalığı = 5000 // milisaniye cinsinden EN AZ 5 SANİYE
@@ -290,7 +290,7 @@ const countdown = (param) => {
        
 
           kanall.messages.fetch(mesajid).then(x => {
-              x.edit(new Discord.MessageEmbed().setColor("PURPLE").setDescription(`${(countdownTextNow)(param.output)(param.date)}`).setFooter("YKS SAYACI!"))
+              x.edit(new Discord.MessageEmbed().setAuthor("YKS GÜNÜ SAYACI!", client.user.avatarURL()).setColor("PURPLE").setDescription(`${(countdownTextNow)(param.output)(param.date)}`))
    
    })
            .then(a=>setTimeout(cd, param.timeout))
@@ -302,7 +302,7 @@ const countdown = (param) => {
 
   console.log(`${countdown({
         date : tarih,
-        output: (d,h,m,s) => `${d}gün ${h}saat ${m}dakika ${s}saniye`,
+        output: (d,h,m,s) => `**${d}**gün **${h}**saat **${m}**dakika **${s}**saniye!`,
         end:  bitiş,
         timeout: yenilemearalığı
     })}`)
