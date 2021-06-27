@@ -257,8 +257,8 @@ client.on("ready",async message => {
   var mesajid = "857701662440554546"
   var kanalid = "857576145334829077"
   var sunucuid = "855004497712644096"
-  var tarih = "June 26 2021 10:15:00 UTC+3" //İNGİLİZCE AY / GÜN / YIL / SAAT / DAKİKA / SANİYE 
-  var bitiş = "Zaman doldu koçum geçmiş olsun"
+  var tarih = "June 18 2022 10:15:00 UTC+3" //İNGİLİZCE AY / GÜN / YIL / SAAT / DAKİKA / SANİYE 
+  var bitiş = "BİTTİ EFENİM GEÇMİŞ OLSUN!"
   var yenilemearalığı = 5000 // milisaniye cinsinden EN AZ 5 SANİYE
   
 
